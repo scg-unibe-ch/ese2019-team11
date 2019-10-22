@@ -6,7 +6,9 @@ import {TodoListController, TodoItemController} from './controllers';
 import {Sequelize} from 'sequelize-typescript';
 import {TodoList} from './models/todolist.model';
 import {TodoItem} from './models/todoitem.model';
+import {User} from './models/User.model';
 import {WelcomeController} from './controllers/welcome.controller';
+import {LoginController} from './controllers/login.controller';
 
 const sequelize =  new Sequelize({
   database: 'development',
@@ -15,7 +17,7 @@ const sequelize =  new Sequelize({
   password: '',
   storage: 'db.sqlite'
 });
-sequelize.addModels([TodoList, TodoItem]);
+sequelize.addModels([TodoList, TodoItem, User]);
 
 // create a new express application instance
 const app: express.Application = express();
@@ -37,6 +39,7 @@ app.use(function (req, res, next) {
 app.use('/todolist', TodoListController);
 app.use('/todoitem', TodoItemController);
 app.use('/welcome', WelcomeController);
+app.use('/login', LoginController);
 
 
 sequelize.sync().then(() => {
