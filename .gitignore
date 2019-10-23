@@ -223,5 +223,4 @@ $RECYCLE.BIN/
 .idea/
 
 # End of https://www.gitignore.io/api/osx,node,linux,windows,webstorm
-frontend/package-lock.json
-frontend/package-lock.json
+package-lock.json
