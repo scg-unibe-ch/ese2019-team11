@@ -9,7 +9,7 @@ import {User} from "../_models/user";
 })
 export class LoginComponent implements OnInit {
 
-  user = new User(0, '', '', '');
+  user = new User(-1, '', '', '');
 
   constructor() { }
 
@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   onLoginDisplay() {
     LoginService.Login(this.user.email, this.user.password).subscribe((instance: any) => {
       this.user = new User(instance.id, instance.name, instance.email, instance.password);
+      alert('got in');
     },
       (error) => {
       alert('not found');
