@@ -1,11 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import {TodoList} from './todo-list';
-import {HttpClient} from '@angular/common/http';
-import {LoginService} from './_services/login.service';
+import { HttpClient} from '@angular/common/http';
+import { LoginService } from './_services/login.service';
+import { Login } from './login';
 
 @Component({
   selector: 'app-root',
@@ -15,8 +14,8 @@ import {LoginService} from './_services/login.service';
 
 export class AppComponent implements OnInit {
   static backendUrl = 'http://localhost:3000';
-  todoList: TodoList = new TodoList(null, '');
-  todoLists: TodoList[] = [];
+  login: Login = new Login(null, '');
+  logins: Login[] = [];
 
   constructor(
     private platform: Platform,
@@ -37,22 +36,22 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     LoginService.init(this.httpClient);
     this.httpClient.get('http://localhost:3000/todolist').subscribe((instances: any) => {
-      this.todoLists = instances.map((instance) => new TodoList(instance.id, instance.name));
+      this.logins = instances.map((instance) => new Login(instance.id, instance.name));
     });
   }
 
   onTodoListCreate() {
     this.httpClient.post('http://localhost:3000/todolist', {
-      name: this.todoList.name
+      name: this.login.name
     }).subscribe((instance: any) => {
-      this.todoList.id = instance.id;
-      this.todoLists.push(this.todoList);
-      this.todoList = new TodoList(null, '');
+      this.login.id = instance.id;
+      this.logins.push(this.login);
+      this.login = new Login(null, '');
     });
   }
 
-  onTodoListDestroy(todoList: TodoList) {
-    this.todoLists.splice(this.todoLists.indexOf(todoList), 1);
+  onTodoListDestroy(login: Login) {
+    this.logins.splice(this.logins.indexOf(login), 1);
   }
 
 }
