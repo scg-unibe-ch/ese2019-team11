@@ -1,8 +1,8 @@
-export class TodoItem {
+export class LoginSession {
 
   constructor(
     public id: number,
-    public todoListId: number,
+    public loginId: number,
     public name: string,
     public done: boolean
 ) {}

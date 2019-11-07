@@ -35,13 +35,13 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     LoginService.init(this.httpClient);
-    this.httpClient.get('http://localhost:3000/todolist').subscribe((instances: any) => {
+    this.httpClient.get('http://localhost:3000/login').subscribe((instances: any) => {
       this.logins = instances.map((instance) => new Login(instance.id, instance.name));
     });
   }
 
-  onTodoListCreate() {
-    this.httpClient.post('http://localhost:3000/todolist', {
+  onLogin() {
+    this.httpClient.post('http://localhost:3000/login', {
       name: this.login.name
     }).subscribe((instance: any) => {
       this.login.id = instance.id;
@@ -50,7 +50,7 @@ export class AppComponent implements OnInit {
     });
   }
 
-  onTodoListDestroy(login: Login) {
+  onLogoff(login: Login) {
     this.logins.splice(this.logins.indexOf(login), 1);
   }
 

@@ -7,26 +7,14 @@ import {User} from '../_models/user';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
+RegisterButtonPressed() {
 
-  user = new User(-1, '', '', '');
-
-  constructor() { }
-
-  ngOnInit() {}
-
-  onLoginDisplay() {
-    LoginService.Login(this.user.email, this.user.password).subscribe((instance: any) => {
-      this.user = new User(instance.id, instance.name, instance.email, instance.password);
-      alert('got in');
-    },
-      (error) => {
-      alert('not found');
-    });
-    console.log(this.user);
-  }
-
-  onRegisterDisplay() {
-  }
 }
+
+LoginButtonPressed() {
+
+}
+}
+
 

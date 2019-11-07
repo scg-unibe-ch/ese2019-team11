@@ -1,13 +1,54 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Event Organization Software
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-app>
+  <ion-content>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title text-center>
+          Event Organization Software
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
 
-<ion-content padding>
-  <p>Please log in or register if you don't already have an account.</p>
-  <ion-button (click="LoginButtonPressed()")>Login</ion-button>
-  <ion-button (click="RegisterButtonPressed()")>Register</ion-button>
-</ion-content>
+    <ion-card>
+      <ion-card-content>Already have an account? Log in:
+        <ion-item>
+          <ion-label position="floating">E-mail address</ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+        <ion-button size="middle" color="dark" (click)="LoginButtonPressed()">Login</ion-button>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-content>Don't have an account?
+        <ion-item>
+          <ion-label position="floating">E-mail address</ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Confirm your password</ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Date of birth</ion-label>
+            <ion-datetime value="DD-MM-YYYY" placeholder="Select Date"></ion-datetime>
+        </ion-item>
+
+        <ion-button size="middle" color="dark" (click)="LoginButtonPressed()">Register</ion-button>
+      </ion-card-content>
+    </ion-card>
+
+
+  </ion-content>
+</ion-app>
