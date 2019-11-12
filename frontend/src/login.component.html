@@ -1,0 +1,13 @@
+
+<ion-card>
+  <ion-row>
+    <ion-col size="6">
+      <ion-input placeholder="E-Mail" name="name" [(ngModel)]="user.email"></ion-input>
+      <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="user.password"></ion-input>
+    </ion-col>
+    <ion-col size="6">
+      <ion-button (click)="onLoginDisplay()" expand='block'>Login</ion-button>
+      <ion-button href='/register' routerDirection='forward' expand='block'>Register</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-card>
