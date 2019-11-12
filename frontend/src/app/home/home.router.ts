@@ -14,19 +14,19 @@ const routes: Routes = [
         )
     },
     {
-      path: 'notifications',
+      path: 'events',
       loadChildren: () =>
-        import('../pages/notifications/notifications.module').then(m => m.NotificationsPageModule)
+        import('../pages/events/events.module').then(m => m.EventsPageModule)
     },
     {
-      path: 'messages',
+      path: 'services',
       loadChildren: () =>
-        import('../pages/messages/messages.module').then(m => m.MessagesPageModule)
+        import('../pages/services/services.module').then(m => m.ServicesPageModule)
     },
     {
-      path: 'settings',
+      path: 'profile',
       loadChildren: () =>
-        import('../pages/settings/settings.module').then(m => m.SettingsPageModule)
+        import('../pages/profile/profile.module').then(m => m.ProfilePageModule)
     }
   ]
 }];
