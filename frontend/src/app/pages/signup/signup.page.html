@@ -5,17 +5,12 @@
 </ion-header>
 
 <ion-content>
-  <div class="center">
+  <div class="ion-text-center">
     <app-logo></app-logo>
     <h1>Register your account</h1>
-  </div>
+
   <form>
     <ion-list>
-
-      <ion-item>
-        Already have an account? <a routerLink="/login"> Log in here.</a>
-      </ion-item>
-
       <ion-item>
         <ion-label position="stacked">E-mail address</ion-label>
         <ion-input type="email"></ion-input>
@@ -28,7 +23,11 @@
         <ion-label position="stacked">Confirm your password</ion-label>
         <ion-input type="PasswordConfirm"></ion-input>
       </ion-item>
-      <ion-button expand="block" shape="round" color="success" (click)="register()">Register</ion-button>
+      <ion-button shape="round" color="secondary" (click)="register()">Register</ion-button>
+      <ion-item class="ion-text-center">
+        <ion-label>Already have an account?&nbsp;<a routerLink="/login">Log in here.</a></ion-label>
+      </ion-item>
     </ion-list>
   </form>
+  </div>
 </ion-content>

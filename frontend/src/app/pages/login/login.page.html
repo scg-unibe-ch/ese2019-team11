@@ -5,10 +5,10 @@
 </ion-header>
 
 <ion-content>
-  <div class="center">
-    <app-logo></app-logo>
+  <div class="ion-text-center">
+    <app-logo class="ion-padding"></app-logo>
     <h1>Sign In</h1>
-  </div>
+
   <form>
     <ion-list>
       <ion-item>
@@ -19,13 +19,14 @@
         <ion-label position="stacked">Password</ion-label>
         <ion-input type="Password"></ion-input>
       </ion-item>
-      <ion-button expand="block" shape="round" color="success" (click)="login()">Sign In</ion-button>
+      <ion-button shape="round" color="secondary" (click)="login()">Sign In</ion-button>
 
-      <ion-item>
-        Don't have an account yet? <a routerLink="/signup">Sign up here.</a>
+      <ion-item class="ion-text-center">
+        <ion-label>Don't have an account yet?&nbsp;<a routerLink="/signup">Sign up here.</a></ion-label>
       </ion-item>
 
 
     </ion-list>
   </form>
+  </div>
 </ion-content>
