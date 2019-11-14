@@ -6,12 +6,10 @@ ion-slide {
 
   ion-slides {
     --bullet-background: var(--ion-color-secondary);
-    --bullet-background-active: var(--ion-color-tertiary);
+    --bullet-background-active: white;
   }
 
 h2 {
   font-size: 40px;
   font-weight: bold;
 }
-
-
