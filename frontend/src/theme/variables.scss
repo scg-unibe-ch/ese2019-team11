@@ -71,4 +71,20 @@
     text-align: center;
   }
 
+  @font-face {
+    font-family: 'nextlink';
+    font-style: normal;
+    font-weight: bold;
+    src: url('../assets/fonts/primer print.ttf');
+  }
 
+  @font-face {
+    font-family: 'nextlink';
+    font-style: normal;
+    font-weight: bold;
+    src: url('../assets/fonts/primer print bold.ttf');
+  }
+  
+  .nextlinkfont{ 
+    font-family: "nextlink"; 
+  }

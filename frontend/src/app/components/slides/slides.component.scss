@@ -4,6 +4,11 @@ ion-slide {
   padding-top: 100px;
   }
 
+  ion-slides {
+    --bullet-background: var(--ion-color-secondary);
+    --bullet-background-active: var(--ion-color-tertiary);
+  }
+
 h2 {
   font-size: 40px;
   font-weight: bold;
