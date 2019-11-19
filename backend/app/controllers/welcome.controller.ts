@@ -1,5 +1,6 @@
 import {Router, Request, Response} from 'express';
 
+//Move to version 3 if needed DONE
 const router: Router = Router();
 router.get('/', async (req: Request, res: Response) => {
   res.statusCode = 200;

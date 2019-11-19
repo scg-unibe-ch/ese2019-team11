@@ -1,7 +1,7 @@
 import {Router, Request, Response} from 'express';
 import {User} from '../models/User.model';
 
-
+//Move to version 3, no adaptations needed DONE
 const router: Router = Router();
 
 
@@ -14,6 +14,7 @@ router.get('/all', async (req: Request, res: Response) => {
   res.statusCode = 300;
   res.send('null');
 });
+
 router.post('/:email/:password',async (req: Request, res: Response) => {
     const email = req.params.email;
     const password = req.params.password;
