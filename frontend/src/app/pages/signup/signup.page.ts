@@ -14,6 +14,7 @@ export class SignupPage implements OnInit {
   }
 
   register() {
-    this.router.navigate(['/home/feed']);
+
+    this.router.navigate(['/login']);
   }
 }

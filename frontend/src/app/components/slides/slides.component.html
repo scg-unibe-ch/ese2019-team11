@@ -1,16 +1,26 @@
 <ion-content fullscreen class="center" color="primary" class="nextlinkfont">
-  <ion-slides pager="true" [options]="slideOpts">
-  <ion-slide >
-    <app-logo></app-logo>
-    <h2>Welcome to nextlink!</h2>
-    <p>Event Organization Platform</p>
-  </ion-slide>
-  <ion-slide>
-    <h2>Made with Ionic & Angular</h2>
-  </ion-slide>
-  <ion-slide>
-  <h2>Let's start!</h2>
-  <app-start class="ion-padding"></app-start>
-  </ion-slide>
-</ion-slides>
+  <ion-slides #slides pager [options]="slideOpts">
+    <ion-slide>
+      <app-logo></app-logo>
+      <h2>Welcome to nextlink!</h2>
+      <p>Event Organization Platform</p>
+    </ion-slide>
+    <ion-slide>
+      <h2>Made with Ionic & Angular</h2>
+    </ion-slide>
+    <ion-slide>
+      <h2>Let's start!</h2>
+      <app-start class="ion-padding"></app-start>
+    </ion-slide>
+    <ion-fab horizontal="start" vertical="center" slot="fixed" padding>
+      <ion-fab-button color="light" (click)="prev()">
+        <ion-icon name="arrow-dropleft"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+    <ion-fab horizontal="end" vertical="center" slot="fixed" padding>
+      <ion-fab-button color="light" (click)="next()">
+        <ion-icon name="arrow-dropright"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </ion-slides>
 </ion-content>

@@ -9,19 +9,23 @@
     <app-logo></app-logo>
     <h1>Register your account</h1>
 
-  <form>
+  <form [formGroup]="registration">
     <ion-list>
       <ion-item>
+        <ion-label position="stacked">Username</ion-label>
+        <ion-input required name="username" type="username"></ion-input>
+      </ion-item>
+      <ion-item>
         <ion-label position="stacked">E-mail address</ion-label>
-        <ion-input type="email"></ion-input>
+        <ion-input required name="email" type="email"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="stacked">Password</ion-label>
-        <ion-input type="Password"></ion-input>
+        <ion-input required name="password" type="password"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="stacked">Confirm your password</ion-label>
-        <ion-input type="PasswordConfirm"></ion-input>
+        <ion-input required type="password" name="passwordConfirm"></ion-input>
       </ion-item>
       <ion-button shape="round" color="secondary" (click)="register()">Register</ion-button>
       <ion-item class="ion-text-center">
