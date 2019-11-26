@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import {TodoList} from './todo-list';
 import {HttpClient} from '@angular/common/http';
 import {LoginService} from './_services/login.service';
+import {RegisterService} from "./_services/register.service";
 
 @Component({
   selector: 'app-root',
@@ -36,6 +37,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     LoginService.init(this.httpClient);
+    RegisterService.init(this.httpClient);
     this.httpClient.get('http://localhost:3000/todolist').subscribe((instances: any) => {
       this.todoLists = instances.map((instance) => new TodoList(instance.id, instance.name));
     });

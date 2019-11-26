@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {LoginService} from "../_services/login.service";
-import {User} from "../_models/user";
+import {LoginService} from '../_services/login.service';
+import {User} from '../_models/user';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ export class LoginComponent implements OnInit {
 
   user = new User(-1, '', '', '');
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit() {}
 
@@ -27,6 +28,7 @@ export class LoginComponent implements OnInit {
   }
 
   onRegisterDisplay() {
+    this.router.navigate(['/register']);
   }
 }
 

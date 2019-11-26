@@ -9,6 +9,8 @@ import {TodoItem} from './models/todoitem.model';
 import {User} from './models/User.model';
 import {WelcomeController} from './controllers/welcome.controller';
 import {LoginController} from './controllers/login.controller';
+import {RegisterController} from './controllers/register.controller';
+
 
 const sequelize =  new Sequelize({
   database: 'development',
@@ -40,6 +42,7 @@ app.use('/todolist', TodoListController);
 app.use('/todoitem', TodoItemController);
 app.use('/welcome', WelcomeController);
 app.use('/login', LoginController);
+app.use('/register', RegisterController)
 
 
 sequelize.sync().then(() => {

@@ -2,11 +2,11 @@
 <ion-card>
   <ion-row>
     <ion-col size="6">
-      <ion-input placeholder="E-Mail" name="name" [(ngModel)]="user.email"></ion-input>
+      <ion-input type="email" placeholder="E-Mail" name="name" [(ngModel)]="user.email"></ion-input>
       <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="user.password"></ion-input>
+      <ion-input type="text" placeholder="Name" name="Name" [(ngModel)]="user.name"></ion-input>
     </ion-col>
     <ion-col size="2">
-      <ion-button (click)="onLoginDisplay()">Login</ion-button>
       <ion-button (click)="onRegisterDisplay()">Register</ion-button>
     </ion-col>
   </ion-row>
