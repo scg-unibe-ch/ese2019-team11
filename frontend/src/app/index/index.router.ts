@@ -9,20 +9,20 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren:() =>
+        loadChildren: () =>
           import('../pages/welcome/welcome.module').then(
             m => m.WelcomePageModule
           )
       },
       {
         path: 'login',
-        loadChildren:() =>
+        loadChildren: () =>
           import('../pages/login/login.module').then(m => m.LoginPageModule)
       },
       {
-        path: 'signup',
-        loadChildren:() =>
-          import('../pages/signup/signup.module').then(m => m.SignupPageModule)
+        path: 'register',
+        loadChildren: () =>
+          import('../pages/register/register.module').then(m => m.RegisterPageModule)
       }
     ]
   }

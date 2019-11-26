@@ -13,16 +13,16 @@
     <ion-list>
       <ion-item>
         <ion-label position="stacked">E-mail address</ion-label>
-        <ion-input type="email"></ion-input>
+        <ion-input type="email" [(ngModel)]="user.email"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="stacked">Password</ion-label>
-        <ion-input type="Password"></ion-input>
+        <ion-input type="password" [(ngModel)]="user.password"></ion-input>
       </ion-item>
       <ion-button shape="round" color="secondary" (click)="login()">Sign In</ion-button>
 
       <ion-item class="ion-text-center">
-        <ion-label>Don't have an account yet?&nbsp;<a routerLink="/signup">Sign up here.</a></ion-label>
+        <ion-label>Don't have an account yet?&nbsp;<a routerLink="/register">Register here.</a></ion-label>
       </ion-item>
 
 

@@ -17,11 +17,11 @@
       </ion-item>
       <ion-item>
         <ion-label position="stacked">E-mail address</ion-label>
-        <ion-input required name="email" type="email"></ion-input>
+        <ion-input required name="email" type="email" [(ngModel)]="user.email"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="stacked">Password</ion-label>
-        <ion-input required name="password" type="password"></ion-input>
+        <ion-input required name="password" type="password" [(ngModel)]="user.password"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="stacked">Confirm your password</ion-label>

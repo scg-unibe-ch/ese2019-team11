@@ -1,41 +1,35 @@
-import {Column, PrimaryKey, Model, Table} from 'sequelize-typescript';
+import {Table, Column, Model, HasMany, BelongsTo, ForeignKey} from 'sequelize-typescript';
+
 
 @Table
 export class User extends Model<User> {
 
 
-  @Column
-  username!: String;
 
   @Column
-  password!: String;
-
-  @PrimaryKey
-  @Column
-  email!: String;
+  name!: string;
 
   @Column
-  city!: String;
+  email !: string;
 
   @Column
-  phonenr!: String;
+  password!: string;
+
 
   toSimplification(): any {
     return {
-      'username': this.username,
-      'password': this.password,
+      'id': this.id,
+      'name': this.name,
       'email': this.email,
-      'city' : this.city,
-      'phonenr' : this.phonenr
+      'password': this.password
     };
   }
 
   fromSimplification(simplification: any): void {
-    this.username = simplification['username'];
-    this.password = simplification['password'];
+    this.name = simplification['name'];
     this.email = simplification['email'];
-    this.city = simplification['city'];
-    this.phonenr = simplification['phonenr'];
+    this.password = simplification['password'];
+    this.id = simplification['id'];
   }
 
 }
