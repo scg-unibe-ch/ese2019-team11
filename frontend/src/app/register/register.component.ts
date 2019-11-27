@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {LoginService} from '../_services/login.service';
 import {User} from '../_models/user';
 import {RegisterService} from '../_services/register.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,15 +13,16 @@ export class RegisterComponent implements OnInit {
 
   user = new User(-1, '', '', '');
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit() {}
 
-  // Change this for registration
+  // Changed for registration
   onRegisterDisplay() {
     RegisterService.Register(this.user.email, this.user.password, this.user.name).subscribe((instance: any) => {
         this.user = new User(instance.id, instance.name, instance.email, instance.password);
         alert('got in');
+        this.router.navigate(['/login']);
       },
       (error) => {
         alert('not found' + error);
