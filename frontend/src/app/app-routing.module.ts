@@ -1,23 +1,27 @@
 import {NgModule} from '@angular/core';
-import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
+import {Routes, RouterModule} from '@angular/router';
+import {LoginComponent} from './login/login.component';
+import {RegisterComponent} from './register/register.component';
+
 
 const routes: Routes = [
-  {
-    path: '',
-    loadChildren: () =>
-      import('./index/index.module').then(m => m.IndexPageModule)
-  },
-  {
-    path: '',
-    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
-  }
+  {path: '', component: LoginComponent},
+  {path: 'register', component: RegisterComponent},
+
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules})
-  ],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
-}
+
+export class AppRoutingModule{}
+export const routingComponents = [LoginComponent, RegisterComponent]
+
+
+/*
+to add a component to the routing:
+-import the component
+-add a path
+-add the component to the routingComponents Array
+ */

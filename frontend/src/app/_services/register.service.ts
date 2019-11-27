@@ -8,9 +8,13 @@ import {AppComponent} from '../app.component';
 })
 export class RegisterService {
 
-  constructor() {}
-
   static httpClient: HttpClient;
+
+  constructor(){}
+
+  init(http: HttpClient) {
+    RegisterService.httpClient = http;
+  }
 
   static init(hC: HttpClient) {
     RegisterService.httpClient = hC;
@@ -18,10 +22,6 @@ export class RegisterService {
 
   static Register(email: string, password: string, name: string): Observable<object> {
     return RegisterService.httpClient.post(AppComponent.backendUrl + '/register/' + email + '/' + password + '/' + name, null);
-  }
-
-  init(http: HttpClient) {
-    RegisterService.httpClient = http;
   }
 
 }
