@@ -2,13 +2,10 @@
 import express from 'express';
 
 // import all the controllers. If you add a new controller, make sure to import it here as well.
-import {TodoListController, TodoItemController} from './controllers';
 import {Sequelize} from 'sequelize-typescript';
-import {TodoList} from './models/todolist.model';
-import {TodoItem} from './models/todoitem.model';
 import {User} from './models/User.model';
-import {WelcomeController} from './controllers/welcome.controller';
-import {LoginController} from './controllers/login.controller';
+import {WelcomeController} from './controllers';
+import {LoginController} from './controllers';
 import {RegisterController} from './controllers/register.controller';
 
 
@@ -19,14 +16,14 @@ const sequelize =  new Sequelize({
   password: '',
   storage: 'db.sqlite'
 });
-sequelize.addModels([TodoList, TodoItem, User]);
+sequelize.addModels([User]);
 
 // create a new express application instance
 const app: express.Application = express();
 app.use(express.json());
 
 // define the port the express app will listen on
-var port: number = 3000;
+let port = 3000;
 if (process.env.PORT !== undefined) {
   port = parseInt(process.env.PORT);
 }
@@ -38,12 +35,9 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.use('/todolist', TodoListController);
-app.use('/todoitem', TodoItemController);
 app.use('/welcome', WelcomeController);
 app.use('/login', LoginController);
-app.use('/register', RegisterController)
-
+app.use('/register', RegisterController);
 
 sequelize.sync().then(() => {
 // start serving the application on the given port
