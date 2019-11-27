@@ -4,7 +4,7 @@ import {User} from '../models/User.model';
 
 const router: Router = Router();
 
-//TO-DO: this is code from login controller! change it to fit register!
+// TO-DO: this is code from login controller! change it to fit register!
 
 router.get('/all', async (req: Request, res: Response) => {
   const instances = await User.findAll();
@@ -29,8 +29,8 @@ router.post('/:email/:password/:name',async (req: Request, res: Response) => {
       const instance = await User.findAll();
       if (instance !== null) {
         let i = 0;
-        for(i=0; i<instance.length; i++){
-          if(instance[i].email === email){
+        for(i=0; i<instance.length; i++) {
+          if(instance[i].email === email) {
             res.statusCode = 404;
             res.send('invalid registration please try again!');
             return;
@@ -42,7 +42,7 @@ router.post('/:email/:password/:name',async (req: Request, res: Response) => {
         newUser.name = name;
         await newUser.save();
         res.statusCode = 200;
-        res.send(newUser.toSimplification())
+        res.send(newUser.toSimplification());
         return;
       }
       res.statusCode = 404;

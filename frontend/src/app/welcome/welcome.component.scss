@@ -1,0 +1,25 @@
+ion-slides {
+  --bullet-background: var(--ion-color-secondary);
+  --bullet-background-active: white;
+  display: block;
+  height: 100vh;
+}
+
+h2 {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+ion-slide {
+  padding: 100px 20px;
+  display: block;
+  height: auto;
+}
+
+ion-img {
+  display: block;
+  margin: auto;
+  height: 150px;
+  width: 150px;
+}
+
