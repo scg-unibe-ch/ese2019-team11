@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {LoginService} from '../_services/login.service';
 import {User} from '../_models/user';
 import {RegisterService} from '../_services/register.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class RegisterComponent implements OnInit {
 
   user = new User(-1, '', '', '');
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit() {}
 
@@ -29,5 +30,8 @@ export class RegisterComponent implements OnInit {
     console.log(this.user);
   }
 
+  onLoginDisplay(){
+    this.router.navigate(['/login']);
+  }
 }
 
