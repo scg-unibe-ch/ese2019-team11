@@ -1,26 +1,30 @@
 <ion-content fullscreen color="primary" class="nextlinkfont">
-  <ion-slides #slides pager [options]="slideOpts">
-    <ion-slide>
-      <ion-img src="../assets/res/logo.svg" class="image"></ion-img>
-      <h2>Welcome to nextlink!</h2>
-      <p>Event Organization Platform</p>
-    </ion-slide>
-    <ion-slide>
-      <h2>Made with Ionic & Angular</h2>
-    </ion-slide>
-    <ion-slide>
-      <h2>Let's start!</h2>
-      <ion-button  color="light" margin-top="150px" (click)="gotologin()">Go to Login</ion-button>
-    </ion-slide>
-    <ion-fab horizontal="start" vertical="center" slot="fixed" padding>
-      <ion-fab-button color="light" (click)="prev()">
-        <ion-icon name="arrow-dropleft"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
-    <ion-fab horizontal="end" vertical="center" slot="fixed" padding>
-      <ion-fab-button color="light" (click)="next()">
-        <ion-icon name="arrow-dropright"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
-  </ion-slides>
+  <ion-row no-padding justify-content-center align-items-center style="height: 100%">
+          <ion-slides #slides pager [options]="slideOpts">
+            <ion-slide class="center" >
+              <h2>Welcome to nextlink!</h2>
+              <ion-img src="../assets/res/logooutline.svg" class="image"></ion-img>
+              <p>Event Organization Platform</p>
+            </ion-slide>
+            <ion-slide class="center" >
+              <h2>Made with Ionic & Angular</h2>
+            </ion-slide>
+            <ion-slide class="center" >
+              <h2>Let's start!</h2>
+              <ion-button color="light" (click)="gotologin()">Go to Login</ion-button>
+            </ion-slide>
+          </ion-slides>
+    </ion-row>
+
+  <ion-fab horizontal="start" vertical="center" slot="fixed" padding>
+    <ion-fab-button color="light" (click)="prev()">
+      <ion-icon name="arrow-dropleft"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-fab horizontal="end" vertical="center" slot="fixed" padding>
+    <ion-fab-button color="light" (click)="next()">
+      <ion-icon name="arrow-dropright"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
 </ion-content>
