@@ -8,18 +8,24 @@ ion-slides {
 h2 {
   font-size: 40px;
   font-weight: bold;
+  margin: 0;
 }
 
 ion-slide {
-  padding: 100px 20px;
   display: block;
-  height: auto;
 }
 
 ion-img {
-  display: block;
-  margin: auto;
-  height: 150px;
-  width: 150px;
+  margin: 10% auto;
+  height: 100px;
+  width: 100px;
 }
 
+.center{
+  top: 20%;
+  margin: auto;
+}
+
+ion-button{
+  margin-top: 15vh;
+}

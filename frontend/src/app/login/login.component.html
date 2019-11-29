@@ -1,5 +1,6 @@
 <ion-content fullscreen color="primary" >
-  <ion-card color="light" class="cardcenter">
+  <ion-row justify-content-center align-items-center style="height: 100%">
+  <ion-card color="light">
     <ion-card-header>
       <ion-card-title>Please log in.</ion-card-title>
     </ion-card-header>
@@ -9,17 +10,16 @@
       <ion-grid>
         <ion-row>
           <ion-col>
-            <div class="center"><ion-button (click)="onLoginDisplay()">Login</ion-button></div>
+            <div ><ion-button (click)="onLoginDisplay()">Login</ion-button></div>
           </ion-col>
           <ion-col>
-            <div class="center"><ion-button (click)="onRegisterDisplay()">Register</ion-button></div>
+            <div><ion-button (click)="onRegisterDisplay()">Register</ion-button></div>
           </ion-col>
         </ion-row>
         </ion-grid>
-
-
     </ion-card-content>
   </ion-card>
+  </ion-row>
 </ion-content>
 
 

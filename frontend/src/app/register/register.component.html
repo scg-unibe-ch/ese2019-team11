@@ -1,24 +1,30 @@
-<ion-content fullscreen color="primary" >
-  <ion-card color="light" class="cardcenter">
-    <ion-card-header>
-      <ion-card-title>Sign up here.</ion-card-title>
-    </ion-card-header>
-    <ion-card-content >
-      <ion-input type="email" placeholder="E-Mail" name="name" [(ngModel)]="user.email"></ion-input>
-      <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="user.password"></ion-input>
-      <ion-input type="text" placeholder="Name" name="Name" [(ngModel)]="user.name"></ion-input>
-      <ion-grid>
-        <ion-row>
-          <ion-col>
-            <div class="center"><ion-button (click)="onRegisterDisplay()">Register</ion-button></div>
-          </ion-col>
-          <ion-col>
-            <div class="center"><ion-button (click)="onLoginDisplay()">Login</ion-button></div>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-card-content>
-  </ion-card>
+<ion-content fullscreen color="primary">
+  <ion-row justify-content-center align-items-center style="height: 100%">
+    <ion-card color="light">
+      <ion-card-header>
+        <ion-card-title>Sign up here.</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-input type="email" placeholder="E-Mail" name="name" [(ngModel)]="user.email"></ion-input>
+        <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="user.password"></ion-input>
+        <ion-input type="text" placeholder="Name" name="Name" [(ngModel)]="user.name"></ion-input>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <div>
+                <ion-button (click)="onRegisterDisplay()">Register</ion-button>
+              </div>
+            </ion-col>
+            <ion-col>
+              <div>
+                <ion-button (click)="onLoginDisplay()">Login</ion-button>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  </ion-row>
 </ion-content>
 
 
