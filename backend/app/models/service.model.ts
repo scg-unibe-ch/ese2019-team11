@@ -6,29 +6,32 @@ export class Service extends Model<Service> {
 
 
   @Column
-  name!: string;
+  id !: number;
 
   @Column
-  email !: string;
+  title !: string;
 
   @Column
-  password!: string;
+  creator !: string;
+
+  @Column
+  description !: string;
 
 
   toSimplification(): any {
     return {
       'id': this.id,
-      'name': this.name,
-      'email': this.email,
-      'password': this.password
+      'title': this.title,
+      'creator': this.creator,
+      'description': this.description
     };
   }
 
   fromSimplification(simplification: any): void {
-    this.name = simplification['name'];
-    this.email = simplification['email'];
-    this.password = simplification['password'];
     this.id = simplification['id'];
+    this.title = simplification['title'];
+    this.creator = simplification['creator'];
+    this.description = simplification['description'];
   }
 
 }
