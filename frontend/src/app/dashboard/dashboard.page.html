@@ -1,21 +1,29 @@
-<ion-tabs>
+<ion-content>
+  <ion-tabs>
+    <ion-header no-border>
+      <ion-toolbar color="primary" >
+        <ion-title class="center">
+          <span>nextlink</span>
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-tab-bar slot="top" color="primary">
 
-  <ion-tab-bar slot="top" color="primary">
+      <ion-tab-button tab="search">
+        <ion-icon name="search"></ion-icon>
+        <ion-label>Search</ion-label>
+      </ion-tab-button>
 
-    <ion-tab-button tab="search">
-      <ion-icon name="search"></ion-icon>
-      <ion-label>Search</ion-label>
-    </ion-tab-button>
+      <ion-tab-button tab="profile">
+        <ion-icon name="person"></ion-icon>
+        <ion-label>Profile</ion-label>
+      </ion-tab-button>
 
-    <ion-tab-button tab="profile">
-      <ion-icon name="person"></ion-icon>
-      <ion-label>Profile</ion-label>
-    </ion-tab-button>
+      <ion-tab-button tab="settings">
+        <ion-icon name="settings"></ion-icon>
+        <ion-label>Settings</ion-label>
+      </ion-tab-button>
 
-    <ion-tab-button tab="settings">
-      <ion-icon name="settings"></ion-icon>
-      <ion-label>Settings</ion-label>
-    </ion-tab-button>
-
-  </ion-tab-bar>
-</ion-tabs>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>
