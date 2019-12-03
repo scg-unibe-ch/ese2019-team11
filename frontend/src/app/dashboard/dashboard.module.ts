@@ -11,7 +11,7 @@ const routes: Routes = [
     component: DashboardPage,
     children: [
       {
-        path: '',
+        path: 'dashboard',
         redirectTo: 'profile'
       },
       {
