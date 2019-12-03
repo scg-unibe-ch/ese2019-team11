@@ -23,11 +23,10 @@ export class LoginComponent implements OnInit {
   onLoginDisplay() {
     LoginService.Login(this.user.email, this.user.password).subscribe((instance: any) => {
       this.user = new User(instance.id, instance.name, instance.email, instance.password);
-      alert('got in');
       this.openToast('Login successful. Redirecting.');
+      this.router.navigate(['/dashboard']);
     },
       (error) => {
-      alert('not found');
       this.openToast('Login failed.');
     });
     console.log(this.user);
