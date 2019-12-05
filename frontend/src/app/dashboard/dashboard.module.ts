@@ -12,19 +12,31 @@ const routes: Routes = [
     children: [
       {
         path: 'dashboard',
-        redirectTo: 'profile'
+        loadChildren: () =>
+         import('./profile/profile.module').then(
+           m => m.ProfilePageModule
+         )
       },
       {
         path: 'search',
-        loadChildren: './search/search.module#SearchPageModule'
+        loadChildren: () =>
+         import('./search/search.module').then(
+           m => m.SearchPageModule
+         )
       },
       {
         path: 'settings',
-        loadChildren: './settings/settings.module#SettingsPageModule'
+        loadChildren: () =>
+        import('./settings/settings.module').then(
+          m => m.SettingsPageModule
+        )
       },
       {
         path: 'profile',
-        loadChildren: './profile/profile.module#ProfilePageModule'
+        loadChildren: () =>
+         import('./profile/profile.module').then(
+           m => m.ProfilePageModule
+         )
       }]
   }
 ];
