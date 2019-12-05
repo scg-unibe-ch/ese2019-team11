@@ -6,7 +6,7 @@ import {WelcomeComponent} from './welcome/welcome.component';
 
 
 const routes: Routes = [
-  {path: '', component: WelcomeComponent},
+  {path: '', component: LoginComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardPageModule)}
