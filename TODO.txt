@@ -1,0 +1,14 @@
+Profile:
+  Angaben speichern in der User DB
+  Formular für Events und Dienste mit Post in die DB
+  (Optional) Bilder posten
+
+Search:
+  Zwei Knöpfe für search service und search events
+    -> Pull der events und services
+    
+Settings:
+  Passwort ändern
+  Namen ändern
+  Persönliche Daten im Profil erweitern
+    -> E-mail angeben
