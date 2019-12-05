@@ -4,8 +4,6 @@ import {Table, Column, Model, HasMany, BelongsTo, ForeignKey} from 'sequelize-ty
 @Table
 export class User extends Model<User> {
 
-
-
   @Column
   name!: string;
 

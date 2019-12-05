@@ -1,3 +1,20 @@
-<ion-content padding>
-  <h1>TODO: add service form here</h1>
+<ion-content fullscreen color="primary" >
+  <ion-row justify-content-center align-items-center style="height: 100%">
+    <ion-card color="light">
+      <ion-card-header>
+        <ion-card-title>Your Event.</ion-card-title>
+      </ion-card-header>
+      <ion-card-content >
+        <ion-input placeholder="Name" name="name" [(ngModel)]="service.name"></ion-input>
+        <ion-input type="Description" placeholder="Description" name="description" [(ngModel)]="service.description"></ion-input>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <div ><ion-button (click)="onSubmitDisplay()">Submit</ion-button></div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  </ion-row>
 </ion-content>

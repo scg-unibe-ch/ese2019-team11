@@ -5,6 +5,8 @@ import {StatusBar} from '@ionic-native/status-bar/ngx';
 import {HttpClient} from '@angular/common/http';
 import {LoginService} from './_services/login.service';
 import {RegisterService} from './_services/register.service';
+import {EventService} from './_services/event.service';
+import {ServiceService} from './_services/service.service';
 
 @Component({
   selector: 'app-root',
@@ -34,6 +36,8 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     LoginService.init(this.httpClient);
     RegisterService.init(this.httpClient);
+    EventService.init(this.httpClient);
+    ServiceService.init(this.httpClient);
   }
 }
 

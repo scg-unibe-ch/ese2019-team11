@@ -24,7 +24,7 @@ export class DashboardPage implements OnInit {
   }
 
   gotoSettings() {
-    this.router.navigate(['/settings']);    
+    this.router.navigate(['/settings']);
   }
 
 }

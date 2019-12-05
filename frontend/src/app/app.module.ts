@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import {LoginComponent} from './login/login.component';
 import {AppRoutingModule, routingComponents} from './app-routing.module';
 import {RegisterComponent} from './register/register.component';
+import {AddEventComponent} from './components/addevent/addevent.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import {RegisterComponent} from './register/register.component';
     LoginComponent,
     routingComponents,
     RegisterComponent,
+    AddEventComponent
   ],
   entryComponents: [],
   imports: [

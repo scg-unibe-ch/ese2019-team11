@@ -3,12 +3,16 @@ import {Routes, RouterModule} from '@angular/router';
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {WelcomeComponent} from './welcome/welcome.component';
+import {AddEventComponent} from './components/addevent/addevent.component';
+import {AddServiceComponent} from './components/addservice/addservice.component';
 
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
+  {path: 'addevent', component: AddEventComponent},
+  {path: 'addservice', component: AddServiceComponent},
   {path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardPageModule)}
 ];
 
@@ -20,7 +24,7 @@ const routes: Routes = [
 export class AppRoutingModule {
 }
 
-export const routingComponents = [LoginComponent, RegisterComponent, WelcomeComponent];
+export const routingComponents = [LoginComponent, AddEventComponent, AddServiceComponent, RegisterComponent, WelcomeComponent];
 
 /*
 to add a component to the routing:

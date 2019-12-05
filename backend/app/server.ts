@@ -4,9 +4,13 @@ import express from 'express';
 // import all the controllers. If you add a new controller, make sure to import it here as well.
 import {Sequelize} from 'sequelize-typescript';
 import {User} from './models/User.model';
+import {Event} from './models/event.model';
+import {Service} from './models/service.model';
 import {WelcomeController} from './controllers';
 import {LoginController} from './controllers';
 import {RegisterController} from './controllers/register.controller';
+import {EventController} from './controllers/event.controller';
+import {ServiceController} from './controllers/service.controller';
 
 
 const sequelize =  new Sequelize({
@@ -16,7 +20,9 @@ const sequelize =  new Sequelize({
   password: '',
   storage: 'db.sqlite'
 });
-sequelize.addModels([User]);
+sequelize.addModels([User, Event, Service]);
+
+
 
 // create a new express application instance
 const app: express.Application = express();
@@ -38,6 +44,8 @@ app.use(function (req, res, next) {
 app.use('/welcome', WelcomeController);
 app.use('/login', LoginController);
 app.use('/register', RegisterController);
+app.use('/event', EventController);
+app.use('/service', ServiceController);
 
 sequelize.sync().then(() => {
 // start serving the application on the given port

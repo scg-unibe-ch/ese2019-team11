@@ -3,7 +3,7 @@ import {User} from './User.model';
 
 
 @Table
-export class Service extends Model<Service> {
+export class Event extends Model<User> {
 
   @ForeignKey(()=>User)
   @Column
@@ -13,26 +13,27 @@ export class Service extends Model<Service> {
   user!: User;
 
   @Column
-  title !: string;
+  title!: string;
 
   @Column
   description !: string;
+
 
 
   toSimplification(): any {
     return {
       'id': this.id,
       'title': this.title,
+      'description': this.description,
       'userid': this.userid,
-      'description': this.description
     };
   }
 
   fromSimplification(simplification: any): void {
-    this.id = simplification['id'];
     this.title = simplification['title'];
-    this.userid = simplification['userid'];
     this.description = simplification['description'];
+    this.userid = simplification['userid'];
+    this.id = simplification['id'];
   }
 
 }
