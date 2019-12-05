@@ -28,4 +28,7 @@ export class ProfilePage implements OnInit {
   ngOnInit() {
   }
 
+  segmentChanged($event: CustomEvent) {
+
+  }
 }
