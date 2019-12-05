@@ -1,0 +1,30 @@
+import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
+
+@Component({
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.page.html',
+  styleUrls: ['./dashboard.page.scss'],
+})
+export class DashboardPage implements OnInit {
+
+  constructor(
+    public router: Router
+  ) {}
+
+  ngOnInit() {
+  }
+
+  gotoProfile() {
+    this.router.navigate(['/profile']);
+  }
+
+  gotoSearch() {
+    this.router.navigate(['/search']);
+  }
+
+  gotoSettings() {
+    this.router.navigate(['/settings']);    
+  }
+
+}
