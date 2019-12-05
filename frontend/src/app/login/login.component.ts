@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {}
 
   onLoginDisplay() {
-    LoginService.Login(this.user.email, this.user.password).subscribe((instance: any) => {
+    LoginService.Login(this.user.email.toLowerCase(), this.user.password).subscribe((instance: any) => {
       this.user = new User(instance.id, instance.name, instance.email, instance.password);
       this.openToast('Login successful. Redirecting.');
       this.router.navigate(['/dashboard']);

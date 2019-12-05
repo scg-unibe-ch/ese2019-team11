@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {}
 
   onRegisterDisplay() {
-    RegisterService.Register(this.user.email, this.user.password, this.user.name).subscribe((instance: any) => {
+    RegisterService.Register(this.user.email.toLowerCase(), this.user.password, this.user.name).subscribe((instance: any) => {
         this.user = new User(instance.id, instance.name, instance.email, instance.password);
         this.openToast('Registration successful. Redirecting to login page.');
         this.router.navigate(['/login']);
