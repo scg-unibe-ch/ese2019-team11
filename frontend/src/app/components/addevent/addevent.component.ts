@@ -4,6 +4,7 @@ import {Event} from '../../_models/event';
 import {Router} from '@angular/router';
 import {ToastController} from '@ionic/angular';
 import {User} from '../../_models/user';
+
 @Component({
   selector: 'app-addevent',
   templateUrl: './addevent.component.html',
@@ -12,7 +13,7 @@ import {User} from '../../_models/user';
 
 export class AddEventComponent implements OnInit {
 
-  event = new Event(-1, '', '');
+  event = new Event(-1, '', '', '');
 
   constructor(
     public router: Router,
@@ -22,8 +23,8 @@ export class AddEventComponent implements OnInit {
   ngOnInit() {}
 
   onSubmitDisplay() {
-    EventService.Submit(this.event.name, this.event.description).subscribe((instance: any) => {
-        this.event = new Event(instance.id, instance.name, instance.description);
+    EventService.Submit( this.event.userid, this.event.title, this.event.description).subscribe((instance: any) => {
+        this.event = new Event(instance.id, instance.userid, instance.name, instance.description);
         this.openToast('Event post successful. Redirecting.');
         this.router.navigate(['/dashboard']);
       },

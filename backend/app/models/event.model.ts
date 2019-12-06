@@ -3,7 +3,7 @@ import {User} from './User.model';
 
 
 @Table
-export class Event extends Model<User> {
+export class Event extends Model<Event> {
 
   @ForeignKey(()=>User)
   @Column

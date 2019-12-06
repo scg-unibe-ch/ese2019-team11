@@ -5,8 +5,9 @@
         <ion-card-title>Your Event.</ion-card-title>
       </ion-card-header>
       <ion-card-content >
-        <ion-input placeholder="Name" name="name" [(ngModel)]="event.name"></ion-input>
-        <ion-input type="Description" placeholder="Description" name="description" [(ngModel)]="event.description"></ion-input>
+        <ion-input placeholder="Title" name="title" [(ngModel)]="event.title"></ion-input>
+        <ion-input type="description" placeholder="Description" name="description" [(ngModel)]="event.description"></ion-input>
+        <ion-input type="userID" placeholder="userid" name="userid" [(ngModel)]="event.userid"></ion-input>
         <ion-grid>
           <ion-row>
             <ion-col>

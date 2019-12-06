@@ -2,11 +2,12 @@
   <ion-row justify-content-center align-items-center style="height: 100%">
     <ion-card color="light">
       <ion-card-header>
-        <ion-card-title>Your Event.</ion-card-title>
+        <ion-card-title>Your Service.</ion-card-title>
       </ion-card-header>
       <ion-card-content >
-        <ion-input placeholder="Name" name="name" [(ngModel)]="service.name"></ion-input>
-        <ion-input type="Description" placeholder="Description" name="description" [(ngModel)]="service.description"></ion-input>
+        <ion-input type="title" placeholder="Title" name="title" [(ngModel)]="service.title"></ion-input>
+        <ion-input type="description" placeholder="Description" name="description" [(ngModel)]="service.description"></ion-input>
+        <ion-input type="userid" placeholder="UserId" name="userid" [(ngModel)]="service.userid"></ion-input>
         <ion-grid>
           <ion-row>
             <ion-col>

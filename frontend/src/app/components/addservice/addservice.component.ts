@@ -4,6 +4,7 @@ import {Event} from '../../_models/event';
 import {Router} from '@angular/router';
 import {ToastController} from '@ionic/angular';
 import {Service} from '../../_models/service';
+import {ServiceService} from '../../_services/service.service';
 @Component({
   selector: 'app-addservice',
   templateUrl: './addservice.component.html',
@@ -12,7 +13,7 @@ import {Service} from '../../_models/service';
 
 export class AddServiceComponent implements OnInit {
 
-  service = new Service(-1, '', '');
+  service = new Service(-1, '', '', '');
 
   constructor(
     public router: Router,
@@ -22,8 +23,8 @@ export class AddServiceComponent implements OnInit {
   ngOnInit() {}
 
   onSubmitDisplay() {
-    EventService.Submit(this.service.name, this.service.description).subscribe((instance: any) => {
-        this.service = new Service(instance.id, instance.name, instance.description);
+    ServiceService.Submit(this.service.userid, this.service.title, this.service.description).subscribe((instance: any) => {
+        this.service = new Service(instance.id, instance.userid, instance.title, instance.description);
         this.openToast('Service post successful. Redirecting.');
         this.router.navigate(['/dashboard']);
       },

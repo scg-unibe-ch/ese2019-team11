@@ -2,7 +2,8 @@ export class Event {
 
   constructor(
     public id: number,
-    public name: string,
+    public userid: string,
+    public title: string,
     public description: string
   ) {}
 

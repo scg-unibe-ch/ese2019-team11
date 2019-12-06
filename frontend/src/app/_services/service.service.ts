@@ -19,8 +19,8 @@ export class ServiceService {
     ServiceService.httpClient = hC;
   }
 
-  static Submit(name: string, description: string): Observable<object> {
-    return ServiceService.httpClient.post(AppComponent.backendUrl + '/addservice/' + name + '/' + description, null);
+  static Submit(userid: string, title: string, description: string): Observable<object> {
+    return ServiceService.httpClient.post(AppComponent.backendUrl + '/service/' + title + '/' + description + '/' + userid, null);
   }
 
 }

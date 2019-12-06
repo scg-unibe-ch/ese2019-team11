@@ -22,7 +22,7 @@ router.get('/all', async (req: Request, res: Response) => {
  */
 router.post('/:title/:description/:userid',async (req: Request, res: Response) => {
     const title = req.params.title;
-    const description = req.params.password;
+    const description = req.params.description;
     const userid = Number.parseInt(req.params.userid);
 
     const event = new Event();

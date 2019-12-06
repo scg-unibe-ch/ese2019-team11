@@ -2,10 +2,11 @@
 import express from 'express';
 
 // import all the controllers. If you add a new controller, make sure to import it here as well.
+//VERY IMPORTANT!!!! WHEN IMPORTING MODELS CONSIDER CAPITALIZATION OF LETTERS!!!!!!
 import {Sequelize} from 'sequelize-typescript';
 import {User} from './models/User.model';
-import {Event} from './models/event.model';
-import {Service} from './models/service.model';
+import {Event} from './models/Event.model';
+import {Service} from './models/Service.model';
 import {WelcomeController} from './controllers';
 import {LoginController} from './controllers';
 import {RegisterController} from './controllers/register.controller';
