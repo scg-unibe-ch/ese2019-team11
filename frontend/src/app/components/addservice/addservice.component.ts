@@ -23,6 +23,7 @@ export class AddServiceComponent implements OnInit {
   ngOnInit() {}
 
   onSubmitDisplay() {
+    // TO-DO: get userid from user not from input!!!! 
     ServiceService.Submit(this.service.userid, this.service.title, this.service.description).subscribe((instance: any) => {
         this.service = new Service(instance.id, instance.userid, instance.title, instance.description);
         this.openToast('Service post successful. Redirecting.');
