@@ -4,7 +4,8 @@ export class Service {
     public id: number,
     public userid: string,
     public title: string,
-    public description: string
+    public description: string,
+    public typ: string
   ) {}
 
 }

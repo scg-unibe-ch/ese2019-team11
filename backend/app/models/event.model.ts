@@ -18,6 +18,12 @@ export class Event extends Model<Event> {
   @Column
   description !: string;
 
+  @Column
+  wann !: string;
+
+  @Column
+  wo !: string;
+
 
 
   toSimplification(): any {
@@ -26,6 +32,8 @@ export class Event extends Model<Event> {
       'title': this.title,
       'description': this.description,
       'userid': this.userid,
+      'wann': this.wann,
+      'wo': this.wo
     };
   }
 
@@ -34,6 +42,8 @@ export class Event extends Model<Event> {
     this.description = simplification['description'];
     this.userid = simplification['userid'];
     this.id = simplification['id'];
+    this.wann = simplification['wann'];
+    this.wo = simplification['wo'];
   }
 
 }

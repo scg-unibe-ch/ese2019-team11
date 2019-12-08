@@ -20,11 +20,13 @@ router.get('/all', async (req: Request, res: Response) => {
 /**
  * posts a new service
  */
-router.post('/:title/:description/:userid',async (req: Request, res: Response) => {
+router.post('/:title/:description/:typ/:userid',async (req: Request, res: Response) => {
     const title = req.params.title;
     const description = req.params.description;
+    const typ = req.params.typ;
     const userid = Number.parseInt(req.params.userid);
     const service = new Service();
+    service.typ = typ;
     service.description = description;
     service.title = title;
     service.userid = userid;

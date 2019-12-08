@@ -19,8 +19,9 @@ export class ServiceService {
     ServiceService.httpClient = hC;
   }
 
-  static Submit(userid: string, title: string, description: string): Observable<object> {
-    return ServiceService.httpClient.post(AppComponent.backendUrl + '/service/' + title + '/' + description + '/' + userid, null);
+  static Submit(userid: string, title: string, description: string, typ: string): Observable<object> {
+    // tslint:disable-next-line:max-line-length
+    return ServiceService.httpClient.post(AppComponent.backendUrl + '/service/' + title + '/' + description + '/' + typ + '/' + userid, null);
   }
 
 }

@@ -6,8 +6,20 @@
       </ion-card-header>
       <ion-card-content >
         <ion-input type="title" placeholder="Title" name="title" [(ngModel)]="service.title"></ion-input>
-        <ion-input type="description" placeholder="Description" name="description" [(ngModel)]="service.description"></ion-input>
+        <ion-textarea rows = "6" cols="20" type="description" placeholder="Description" name="description" [(ngModel)]="service.description"></ion-textarea>
         <ion-input type="userid" placeholder="UserId" name="userid" [(ngModel)]="service.userid"></ion-input>
+        <ion-item>
+          <ion-label>Angebot</ion-label>
+          <ion-select type="typ" placeholder="Wähle dein Angebot" name="typ" [(ngModel)]="service.typ">
+            <ion-select-option value="Fotograf">Fotografie</ion-select-option>
+            <ion-select-option value="Catering">Catering</ion-select-option>
+            <ion-select-option value="DJ">DJ</ion-select-option>
+            <ion-select-option value="Live Unterhaltung">Live Unterhaltung</ion-select-option>
+            <ion-select-option value="Eventtechnik">Eventtechnik</ion-select-option>
+            <ion-select-option value="Eventplanung">Eventplanung</ion-select-option>
+            <ion-select-option value="Sicherheit">Sicherheit</ion-select-option>
+          </ion-select>
+        </ion-item>
         <ion-grid>
           <ion-row>
             <ion-col>

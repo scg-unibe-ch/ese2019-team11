@@ -20,15 +20,19 @@ router.get('/all', async (req: Request, res: Response) => {
 /**
  * posts a new service
  */
-router.post('/:title/:description/:userid',async (req: Request, res: Response) => {
+router.post('/:title/:description/:wann/:wo/:userid',async (req: Request, res: Response) => {
     const title = req.params.title;
     const description = req.params.description;
     const userid = Number.parseInt(req.params.userid);
+    const wann = req.params.wann;
+    const wo = req.params.wo;
 
     const event = new Event();
     event.description = description;
     event.title = title;
     event.userid = userid;
+    event.wann = wann;
+    event.wo = wo;
     await event.save();
 
     res.statusCode = 200;

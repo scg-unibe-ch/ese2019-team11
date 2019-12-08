@@ -4,7 +4,9 @@ export class Event {
     public id: number,
     public userid: string,
     public title: string,
-    public description: string
+    public description: string,
+    public wann: string,
+    public wo: string
   ) {}
 
 }

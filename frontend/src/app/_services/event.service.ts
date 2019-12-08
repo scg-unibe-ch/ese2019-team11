@@ -22,8 +22,9 @@ export class EventService {
     EventService.httpClient = hC;
   }
 
-  static Submit(userid: string, title: string, description: string): Observable<object> {
-    return EventService.httpClient.post(AppComponent.backendUrl + '/event/' + title + '/' + description + '/' + userid, null);
+  static Submit(userid: string, title: string, description: string, wann: string, wo: string): Observable<object> {
+    // tslint:disable-next-line:max-line-length
+    return EventService.httpClient.post(AppComponent.backendUrl + '/event/' + title + '/' + description + '/' + wann + '/' + wo + '/' + userid, null);
   }
 
 }
