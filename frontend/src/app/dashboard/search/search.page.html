@@ -2,7 +2,19 @@
 <ion-grid>
   <ion-row>
     <ion-col>
+      <div class="inner" *ngFor="let currentService of services">
+        <div class="service">
+          <h3> {{currentService.title}}</h3>
+          <p> {{currentService.description}}</p>
+          <p> {{currentService.typ}}</p>
+          <img src="{{currentService.image}}"alt="shit didn't work">
+          <!--MACHET DER SCHEISS   -->
 
+        </div>
+
+
+
+      </div>
     </ion-col>
   </ion-row>
 </ion-grid>

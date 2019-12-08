@@ -8,6 +8,8 @@
         <ion-input type="title" placeholder="Title" name="title" [(ngModel)]="service.title"></ion-input>
         <ion-textarea rows = "6" cols="20" type="description" placeholder="Description" name="description" [(ngModel)]="service.description"></ion-textarea>
         <ion-input type="userid" placeholder="UserId" name="userid" [(ngModel)]="service.userid"></ion-input>
+        <img *ngIf="service.image.length>5" style="width: 20%" src="{{service.image}}" alt="image" />
+        <ion-input type="file" value="hochladen" (change)="uploadMethod($event)"></ion-input>
         <ion-item>
           <ion-label>Angebot</ion-label>
           <ion-select type="typ" placeholder="Wähle dein Angebot" name="typ" [(ngModel)]="service.typ">

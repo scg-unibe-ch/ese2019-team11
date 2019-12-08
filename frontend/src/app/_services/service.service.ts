@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {AppComponent} from '../app.component';
+import {Service} from '../_models/service';
 
 @Injectable({
   providedIn: 'root'
@@ -19,9 +20,12 @@ export class ServiceService {
     ServiceService.httpClient = hC;
   }
 
-  static Submit(userid: string, title: string, description: string, typ: string): Observable<object> {
+  static Submit(service: Service): Observable<object> {
     // tslint:disable-next-line:max-line-length
-    return ServiceService.httpClient.post(AppComponent.backendUrl + '/service/' + title + '/' + description + '/' + typ + '/' + userid, null);
+    return ServiceService.httpClient.post(AppComponent.backendUrl + '/service/' , service.toSimplification());
   }
-
+  static getServices(): Observable<object> {
+    // tslint:disable-next-line:max-line-length
+    return ServiceService.httpClient.get(AppComponent.backendUrl + '/service/all');
+  }
 }

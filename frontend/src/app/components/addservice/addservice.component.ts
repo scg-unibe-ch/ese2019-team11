@@ -13,20 +13,23 @@ import {ServiceService} from '../../_services/service.service';
 
 export class AddServiceComponent implements OnInit {
 
-  service = new Service(-1, '', '', '', '');
+  service = new Service(-1, '', '', '', '', '');
+  filecontent = '';
 
   constructor(
     public router: Router,
     public toastController: ToastController
-  ) { }
+  ) {
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   onSubmitDisplay() {
     // TO-DO: get userid from user not from input!!!!
     // tslint:disable-next-line:max-line-length
-    ServiceService.Submit(this.service.userid, this.service.title, this.service.description, this.service.typ).subscribe((instance: any) => {
-        this.service = new Service(instance.id, instance.userid, instance.title, instance.description, instance.typ);
+    ServiceService.Submit(this.service).subscribe((instance: any) => {
+        this.service = Service.fromSimplification(instance);
         this.openToast('Service post successful. Redirecting.');
         this.router.navigate(['/dashboard']);
       },
@@ -45,6 +48,29 @@ export class AddServiceComponent implements OnInit {
       color: 'light',
     });
     toast.present();
+  }
+
+
+  uploadMethod(event) {
+
+    console.log('changed image');
+
+    if (event.target.files && event.target.files[0]) {
+
+      const reader = new FileReader();
+
+      console.log('is image');
+
+      reader.readAsDataURL(event.target.files[0]); // read file as data url
+
+
+      reader.onload = (res: any) => { // called once readAsDataURL is completed
+
+        // this.resizeLogoAndSave(res.target.result);
+        this.service.image = res.target.result;
+
+      };
+    }
   }
 }
 

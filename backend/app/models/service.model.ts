@@ -1,4 +1,4 @@
-import {Table, Column, Model, HasMany, BelongsTo, ForeignKey} from 'sequelize-typescript';
+import {Table, Column, Model, HasMany, BelongsTo, ForeignKey, DataType} from 'sequelize-typescript';
 import {User} from './User.model';
 
 
@@ -15,11 +15,14 @@ export class Service extends Model<Service> {
   @Column
   title !: string;
 
-  @Column
+  @Column(DataType.TEXT)
   description !: string;
 
   @Column
   typ !: string;
+
+  @Column(DataType.TEXT)
+  image !: string;
 
 
   toSimplification(): any {
@@ -28,7 +31,8 @@ export class Service extends Model<Service> {
       'title': this.title,
       'userid': this.userid,
       'description': this.description,
-      'typ': this.typ
+      'typ': this.typ,
+      'image': this.image
     };
   }
 
@@ -38,6 +42,7 @@ export class Service extends Model<Service> {
     this.userid = simplification['userid'];
     this.description = simplification['description'];
     this.typ = simplification['typ'];
+    this.image = simplification['image'];
   }
 
 }
