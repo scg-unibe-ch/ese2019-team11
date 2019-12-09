@@ -10,6 +10,8 @@
         <ion-input type="userID" placeholder="userid" name="userid" [(ngModel)]="event.userid"></ion-input>
         <ion-input type="Wann" placeholder="when?" name="wann" [(ngModel)]="event.wann"></ion-input>
         <ion-input type="Wo" placeholder="where?" name="wo" [(ngModel)]="event.wo"></ion-input>
+        <img *ngIf="event.image.length>5" style="width: 20%" src="{{event.image}}" alt="image" />
+        <ion-input type="file" value="hochladen" (change)="uploadMethod($event)"></ion-input>
         <ion-grid>
           <ion-row>
             <ion-col>

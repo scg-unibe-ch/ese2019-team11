@@ -28,4 +28,8 @@ export class ServiceService {
     // tslint:disable-next-line:max-line-length
     return ServiceService.httpClient.get(AppComponent.backendUrl + '/service/all');
   }
+  static getsearchresult(value: string): Observable<object> {
+    // tslint:disable-next-line:max-line-length
+    return ServiceService.httpClient.get(AppComponent.backendUrl + '/service/search/' + value);
+  }
 }

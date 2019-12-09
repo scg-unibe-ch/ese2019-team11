@@ -1,5 +1,7 @@
 import {Router, Request, Response} from 'express';
 import {Ort} from '../models/Ort.model';
+import {Service} from "../models/service.model";
+import {Sequelize} from "sequelize-typescript";
 
 
 const router: Router = Router();
@@ -28,5 +30,22 @@ router.post('/',async (req: Request, res: Response) => {
     res.send(ort.toSimplification());
   }
 );
+
+router.get('/search/:value', async (req: Request, res: Response) => {
+  const value = req.params.value;
+  const instances = await Ort.findAll({
+    where: Sequelize.or({
+        title: {[Sequelize.Op.like]: '%' + value + '%'}},
+      {description:{[Sequelize.Op.like]: '%' + value + '%'},
+      }
+    )
+  });
+  if (instances !== null) {
+    res.statusCode = 200;
+    res.send(instances.map(e => e.toSimplification()));
+  }
+  res.statusCode = 300;
+  res.send('null');
+});
 
 export const OrtController: Router = router;

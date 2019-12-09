@@ -5,6 +5,7 @@ import {Router} from '@angular/router';
 import {ToastController} from '@ionic/angular';
 import {User} from '../../_models/user';
 
+
 @Component({
   selector: 'app-addevent',
   templateUrl: './addevent.component.html',
@@ -13,20 +14,23 @@ import {User} from '../../_models/user';
 
 export class AddEventComponent implements OnInit {
 
-  event = new Event(-1, '', '', '', '', '');
+  event = new Event(-1, '', '', '', '', '', '');
 
   constructor(
     public router: Router,
     public toastController: ToastController
-  ) { }
+  ) {
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
+
 // TO-DO: get userid from user not from input!!!!
   onSubmitDisplay() {
     // tslint:disable-next-line:max-line-length
-    EventService.Submit( this.event.userid, this.event.title, this.event.description, this.event.wann, this.event.wo).subscribe((instance: any) => {
-        this.event = new Event(instance.id, instance.userid, instance.name, instance.description, instance.wann, instance.wo);
-        this.openToast('Event post successful. Redirecting.');
+    EventService.Submit(this.event).subscribe((instance: any) => {
+        this.event = Event.fromSimplification(instance);
+        this.openToast('Service post successful. Redirecting.');
         this.router.navigate(['/dashboard']);
       },
       (error) => {
@@ -45,5 +49,26 @@ export class AddEventComponent implements OnInit {
     });
     toast.present();
   }
-}
 
+  uploadMethod(event) {
+
+    console.log('changed image');
+
+    if (event.target.files && event.target.files[0]) {
+
+      const reader = new FileReader();
+
+      console.log('is image');
+
+      reader.readAsDataURL(event.target.files[0]); // read file as data url
+
+
+      reader.onload = (res: any) => { // called once readAsDataURL is completed
+
+        // this.resizeLogoAndSave(res.target.result);
+        this.event.image = res.target.result;
+
+      };
+    }
+  }
+}

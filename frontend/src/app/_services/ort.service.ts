@@ -28,4 +28,8 @@ export class OrtService {
     // tslint:disable-next-line:max-line-length
     return OrtService.httpClient.get(AppComponent.backendUrl + '/ort/all');
   }
+  static getsearchresult(value: string): Observable<object> {
+    // tslint:disable-next-line:max-line-length
+    return OrtService.httpClient.get(AppComponent.backendUrl + '/ort/search/' + value);
+  }
 }

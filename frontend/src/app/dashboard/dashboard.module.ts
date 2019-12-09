@@ -25,6 +25,20 @@ const routes: Routes = [
          )
       },
       {
+        path: 'searchevents',
+        loadChildren: () =>
+          import('./searchevents/searchevents.module').then(
+            m => m.SearchEventsPageModule
+          )
+      },
+      {
+        path: 'searchort',
+        loadChildren: () =>
+          import('./searchort/searchort.module').then(
+            m => m.SearchOrtPageModule
+          )
+      },
+      {
         path: 'settings',
         loadChildren: () =>
         import('./settings/settings.module').then(

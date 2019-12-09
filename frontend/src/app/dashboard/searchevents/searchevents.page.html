@@ -1,0 +1,28 @@
+<ion-content>
+  <ion-button (click)="showServiceForm()"> services</ion-button>
+  <ion-button (click)="showEventForm()"> events</ion-button>
+  <ion-button (click)="showOrtForm()"> locations</ion-button>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-input name="searchvalue" placeholder="search" [(ngModel)]="search"></ion-input>
+        <ion-button (click)="searchvalue()">search event</ion-button>
+        <div class="inner" *ngFor="let currentEvent of events">
+          <div class="service">
+            <h3> {{currentEvent.title}}</h3>
+            <img src="{{currentEvent.image}}"alt="didn't work">
+            <p> {{currentEvent.description}}</p>
+            <p> {{currentEvent.wann}}</p>
+            <p> {{currentEvent.wo}}</p>
+           <!-- <img src="{{currentEvent.image}}"alt="didn't work"> -->
+            <!--mehr stuff hinzufügen   -->
+
+          </div>
+
+
+
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -2,10 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {AppComponent} from '../app.component';
-import {RegisterService} from './register.service';
-import {LoginService} from './login.service';
-import {User} from '../_models/user';
-import {ServiceService} from './service.service';
+import {Event} from '../_models/event';
 
 @Injectable({
   providedIn: 'root'
@@ -22,9 +19,16 @@ export class EventService {
     EventService.httpClient = hC;
   }
 
-  static Submit(userid: string, title: string, description: string, wann: string, wo: string): Observable<object> {
+  static Submit(event: Event): Observable<object> {
     // tslint:disable-next-line:max-line-length
-    return EventService.httpClient.post(AppComponent.backendUrl + '/event/' + title + '/' + description + '/' + wann + '/' + wo + '/' + userid, null);
+    return EventService.httpClient.post(AppComponent.backendUrl + '/event/' , event.toSimplification());
   }
-
+  static getEvents(): Observable<object> {
+    // tslint:disable-next-line:max-line-length
+    return EventService.httpClient.get(AppComponent.backendUrl + '/event/all');
+  }
+  static getsearchresult(value: string): Observable<object> {
+    // tslint:disable-next-line:max-line-length
+    return EventService.httpClient.get(AppComponent.backendUrl + '/event/search/' + value);
+  }
 }

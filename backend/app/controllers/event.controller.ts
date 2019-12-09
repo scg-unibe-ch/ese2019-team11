@@ -1,11 +1,14 @@
 import {Router, Request, Response} from 'express';
 import {Event} from '../models/Event.model';
+import {Service} from "../models/service.model";
+import {Sequelize} from "sequelize-typescript";
+
 
 
 const router: Router = Router();
 
 /**
- * returns all services
+ * returns all events
  */
 router.get('/all', async (req: Request, res: Response) => {
   const instances = await Event.findAll();
@@ -18,26 +21,32 @@ router.get('/all', async (req: Request, res: Response) => {
 });
 
 /**
- * posts a new service
+ * posts a new event
  */
-router.post('/:title/:description/:wann/:wo/:userid',async (req: Request, res: Response) => {
-    const title = req.params.title;
-    const description = req.params.description;
-    const userid = Number.parseInt(req.params.userid);
-    const wann = req.params.wann;
-    const wo = req.params.wo;
-
+router.post('/',async (req: Request, res: Response) => {
     const event = new Event();
-    event.description = description;
-    event.title = title;
-    event.userid = userid;
-    event.wann = wann;
-    event.wo = wo;
+    event.fromSimplification(req.body);
     await event.save();
-
     res.statusCode = 200;
     res.send(event.toSimplification());
   }
 );
+
+router.get('/search/:value', async (req: Request, res: Response) => {
+  const value = req.params.value;
+  const instances = await Event.findAll({
+    where: Sequelize.or({
+        title: {[Sequelize.Op.like]: '%' + value + '%'}},
+      {description:{[Sequelize.Op.like]: '%' + value + '%'},
+      }
+    )
+  });
+  if (instances !== null) {
+    res.statusCode = 200;
+    res.send(instances.map(e => e.toSimplification()));
+  }
+  res.statusCode = 300;
+  res.send('null');
+});
 
 export const EventController: Router = router;
