@@ -4,13 +4,17 @@ export class Service {
     public id: number,
     public userid: string,
     public title: string,
-    public description: string,
+    public image: string,
     public typ: string,
-    public image: string
+    public hourlywage: string,
+    public availability: string,
+    public description: string,
+    public email: string
   ) {}
-
+S
   static fromSimplification(instance: any): Service {
-    return new Service(instance.id, instance.userid, instance.title, instance.description, instance.typ, instance.image);
+    // tslint:disable-next-line:max-line-length
+    return new Service(instance.id, instance.userid, instance.title, instance.image, instance.typ, instance.availability, instance.hourlywage, instance.description, instance.email);
   }
   toSimplification(): any {
     return {
@@ -18,7 +22,10 @@ export class Service {
       userid: this.userid,
       image: this.image,
       description: this.description,
-      typ: this.typ
+      typ: this.typ,
+      hourlywage: this.hourlywage,
+      availability: this.availability,
+      email: this.email
     };
   }
 }

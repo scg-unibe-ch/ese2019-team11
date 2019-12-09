@@ -3,6 +3,7 @@ import {LoginService} from '../_services/login.service';
 import {User} from '../_models/user';
 import {Router} from '@angular/router';
 import {ToastController} from '@ionic/angular';
+import {AppComponent} from "../app.component";
 
 @Component({
   selector: 'app-login',
@@ -23,6 +24,7 @@ export class LoginComponent implements OnInit {
   onLoginDisplay() {
     LoginService.Login(this.user.email.toLowerCase(), this.user.password).subscribe((instance: any) => {
       this.user = new User(instance.id, instance.name, instance.email, instance.password);
+      AppComponent.user = this.user;
       this.openToast('Login successful. Redirecting.');
       this.router.navigate(['/dashboard']);
     },

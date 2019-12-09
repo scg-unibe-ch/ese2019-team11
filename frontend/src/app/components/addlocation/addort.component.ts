@@ -3,6 +3,8 @@ import {Router} from '@angular/router';
 import {ToastController} from '@ionic/angular';
 import {Ort} from '../../_models/ort';
 import {OrtService} from '../../_services/ort.service';
+import {AppComponent} from '../../app.component';
+
 @Component({
   selector: 'app-addort',
   templateUrl: './addort.component.html',
@@ -11,7 +13,7 @@ import {OrtService} from '../../_services/ort.service';
 
 export class AddOrtComponent implements OnInit {
 
-  ort = new Ort(-1, '', '', '', '', '');
+  ort = new Ort(-1, AppComponent.user.id.toString(), '', '', '', '', AppComponent.user.email, '', '');
   filecontent = '';
 
   constructor(

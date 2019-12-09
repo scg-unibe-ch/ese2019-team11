@@ -27,6 +27,11 @@ export class Event extends Model<Event> {
   @Column
   image !: string;
 
+  @Column
+  need !: string;
+
+  @Column
+  email !: string;
 
   toSimplification(): any {
     return {
@@ -36,6 +41,8 @@ export class Event extends Model<Event> {
       'userid': this.userid,
       'wann': this.wann,
       'wo': this.wo,
+      'need': this.need,
+      'email': this.email,
       'image': this.image
     };
   }
@@ -47,6 +54,8 @@ export class Event extends Model<Event> {
     this.id = simplification['id'];
     this.wann = simplification['wann'];
     this.wo = simplification['wo'];
+    this.need = simplification['need'];
+    this.email = simplification['email'];
     this.image = simplification['image'];
   }
 

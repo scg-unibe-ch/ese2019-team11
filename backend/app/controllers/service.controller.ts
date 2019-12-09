@@ -36,6 +36,14 @@ router.get('/search/:value', async (req: Request, res: Response) => {
     where: Sequelize.or({
         title: {[Sequelize.Op.like]: '%' + value + '%'}},
       {description:{[Sequelize.Op.like]: '%' + value + '%'},
+      },
+      {hourlywage:{[Sequelize.Op.like]: '%' + value + '%'},
+      },
+      {availability:{[Sequelize.Op.like]: '%' + value + '%'},
+      },
+      {email:{[Sequelize.Op.like]: '%' + value + '%'},
+      },
+      {typ:{[Sequelize.Op.like]: '%' + value + '%'},
       }
     )
   });

@@ -1,7 +1,6 @@
 import {Router, Request, Response} from 'express';
 import {Event} from '../models/Event.model';
-import {Service} from "../models/service.model";
-import {Sequelize} from "sequelize-typescript";
+import {Sequelize} from 'sequelize-typescript';
 
 
 
@@ -38,6 +37,14 @@ router.get('/search/:value', async (req: Request, res: Response) => {
     where: Sequelize.or({
         title: {[Sequelize.Op.like]: '%' + value + '%'}},
       {description:{[Sequelize.Op.like]: '%' + value + '%'},
+      },
+      {wann:{[Sequelize.Op.like]: '%' + value + '%'},
+      },
+      {wo:{[Sequelize.Op.like]: '%' + value + '%'},
+      },
+      {need:{[Sequelize.Op.like]: '%' + value + '%'},
+      },
+      {email:{[Sequelize.Op.like]: '%' + value + '%'},
       }
     )
   });

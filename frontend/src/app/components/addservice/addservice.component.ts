@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {EventService} from '../../_services/event.service';
-import {Event} from '../../_models/event';
 import {Router} from '@angular/router';
 import {ToastController} from '@ionic/angular';
 import {Service} from '../../_models/service';
 import {ServiceService} from '../../_services/service.service';
+import {AppComponent} from "../../app.component";
 @Component({
   selector: 'app-addservice',
   templateUrl: './addservice.component.html',
@@ -13,7 +12,7 @@ import {ServiceService} from '../../_services/service.service';
 
 export class AddServiceComponent implements OnInit {
 
-  service = new Service(-1, '', '', '', '', '');
+  service = new Service(-1, AppComponent.user.id.toString(), '', '', '', '', '', '', AppComponent.user.email);
   filecontent = '';
 
   constructor(

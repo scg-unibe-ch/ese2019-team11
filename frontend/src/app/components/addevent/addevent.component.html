@@ -6,8 +6,8 @@
       </ion-card-header>
       <ion-card-content >
         <ion-input placeholder="Title" name="title" [(ngModel)]="event.title"></ion-input>
-        <ion-textarea rows = "6" cols="20" type="description" placeholder="Description" name="description" [(ngModel)]="event.description"></ion-textarea>
-        <ion-input type="userID" placeholder="userid" name="userid" [(ngModel)]="event.userid"></ion-input>
+        <ion-textarea rows = "5" cols="20" type="description" placeholder="Description" name="description" [(ngModel)]="event.description"></ion-textarea>
+        <ion-textarea rows = "3" cols="20" type="need" placeholder="Need" name="need" [(ngModel)]="event.need"></ion-textarea>
         <ion-input type="Wann" placeholder="when?" name="wann" [(ngModel)]="event.wann"></ion-input>
         <ion-input type="Wo" placeholder="where?" name="wo" [(ngModel)]="event.wo"></ion-input>
         <img *ngIf="event.image.length>5" style="width: 20%" src="{{event.image}}" alt="image" />

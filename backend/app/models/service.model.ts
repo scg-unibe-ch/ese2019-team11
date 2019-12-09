@@ -24,6 +24,15 @@ export class Service extends Model<Service> {
   @Column(DataType.TEXT)
   image !: string;
 
+  @Column
+  hourlywage !: string;
+
+  @Column
+  availability !: string;
+
+  @Column
+  email !: string;
+
 
   toSimplification(): any {
     return {
@@ -32,7 +41,10 @@ export class Service extends Model<Service> {
       'userid': this.userid,
       'description': this.description,
       'typ': this.typ,
-      'image': this.image
+      'image': this.image,
+      'hourlywage': this.hourlywage,
+      'availability': this.availability,
+      'email': this.email
     };
   }
 
@@ -42,7 +54,10 @@ export class Service extends Model<Service> {
     this.userid = simplification['userid'];
     this.description = simplification['description'];
     this.typ = simplification['typ'];
+    this.hourlywage = simplification['hourlywage'];
+    this.availability = simplification['availability'];
     this.image = simplification['image'];
+    this.email = simplification['email'];
   }
 
 }

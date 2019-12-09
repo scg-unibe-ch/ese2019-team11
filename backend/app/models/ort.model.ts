@@ -24,6 +24,15 @@ export class Ort extends Model<Ort> {
   @Column(DataType.TEXT)
   image !: string;
 
+  @Column
+  availability !: string;
+
+  @Column
+  email !: string;
+
+  @Column
+  rent !: string;
+
 
   toSimplification(): any {
     return {
@@ -32,6 +41,9 @@ export class Ort extends Model<Ort> {
       'userid': this.userid,
       'description': this.description,
       'area': this.area,
+      'availability': this.availability,
+      'email': this.email,
+      'rent': this.rent,
       'image': this.image
     };
   }
@@ -42,6 +54,9 @@ export class Ort extends Model<Ort> {
     this.userid = simplification['userid'];
     this.description = simplification['description'];
     this.area = simplification['area'];
+    this.rent = simplification['rent'];
+    this.availability = simplification['availability'];
+    this.email = simplification['email'];
     this.image = simplification['image'];
   }
 

@@ -10,9 +10,12 @@
       <div class="inner" *ngFor="let currentService of services">
         <div class="service">
           <h3> {{currentService.title}}</h3>
+          <img src="{{currentService.image}}"alt="didn't work">
           <p> {{currentService.description}}</p>
           <p> {{currentService.typ}}</p>
-          <img src="{{currentService.image}}"alt="didn't work">
+          <p> {{currentService.hourlywage}}</p>
+          <p> {{currentService.availability}}</p>
+          <p> {{currentService.email}}</p>
           <!--mehr stuff hinzufügen   -->
 
         </div>

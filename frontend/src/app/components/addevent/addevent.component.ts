@@ -4,6 +4,7 @@ import {Event} from '../../_models/event';
 import {Router} from '@angular/router';
 import {ToastController} from '@ionic/angular';
 import {User} from '../../_models/user';
+import {AppComponent} from "../../app.component";
 
 
 @Component({
@@ -14,7 +15,7 @@ import {User} from '../../_models/user';
 
 export class AddEventComponent implements OnInit {
 
-  event = new Event(-1, '', '', '', '', '', '');
+  event = new Event(-1, AppComponent.user.id.toString(), '', '', '', '', '', AppComponent.user.email, '');
 
   constructor(
     public router: Router,
