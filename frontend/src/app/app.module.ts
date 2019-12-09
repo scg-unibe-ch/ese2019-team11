@@ -8,6 +8,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import {LoginComponent} from './login/login.component';
+import {AddOrtComponent} from './components/addlocation/addort.component';
 import {AppRoutingModule, routingComponents} from './app-routing.module';
 import {RegisterComponent} from './register/register.component';
 import {AddEventComponent} from './components/addevent/addevent.component';
@@ -19,7 +20,8 @@ import {AddEventComponent} from './components/addevent/addevent.component';
     LoginComponent,
     routingComponents,
     RegisterComponent,
-    AddEventComponent
+    AddEventComponent,
+    AddOrtComponent
   ],
   entryComponents: [],
   imports: [

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { AddServiceComponent } from '../../components/addservice/addservice.component';
 import { AddEventComponent } from '../../components/addevent/addevent.component';
+import {AddOrtComponent} from '../../components/addlocation/addort.component';
 
 @Component({
   selector: 'app-profile',
@@ -15,6 +16,13 @@ export class ProfilePage implements OnInit {
   async showServiceForm() {
     const modal = await this.modalCtrl.create({
       component: AddServiceComponent
+    });
+    await modal.present();
+  }
+
+  async showOrtForm() {
+    const modal = await this.modalCtrl.create({
+      component: AddOrtComponent
     });
     await modal.present();
   }

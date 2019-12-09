@@ -1,0 +1,24 @@
+<ion-content fullscreen color="primary" >
+  <ion-row justify-content-center align-items-center style="height: 100%">
+    <ion-card color="light">
+      <ion-card-header>
+        <ion-card-title>Your Location.</ion-card-title>
+      </ion-card-header>
+      <ion-card-content >
+        <ion-input type="title" placeholder="Title" name="title" [(ngModel)]="ort.title"></ion-input>
+        <ion-textarea rows = "6" cols="20" type="description" placeholder="Description" name="description" [(ngModel)]="ort.description"></ion-textarea>
+        <ion-input type="userid" placeholder="UserId" name="userid" [(ngModel)]="ort.userid"></ion-input>
+        <img *ngIf="ort.image.length>5" style="width: 20%" src="{{ort.image}}" alt="image" />
+        <ion-input type="file" value="hochladen" (change)="uploadMethod($event)"></ion-input>
+        <ion-input type="area" placeholder="Area" name="area" [(ngModel)]="ort.area"></ion-input>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <div ><ion-button (click)="onSubmitDisplay()">Submit</ion-button></div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  </ion-row>
+</ion-content>

@@ -7,11 +7,13 @@ import {Sequelize} from 'sequelize-typescript';
 import {User} from './models/User.model';
 import {Event} from './models/Event.model';
 import {Service} from './models/Service.model';
+import {Ort} from './models/Ort.model';
 import {WelcomeController} from './controllers';
 import {LoginController} from './controllers';
 import {RegisterController} from './controllers/register.controller';
 import {EventController} from './controllers/event.controller';
 import {ServiceController} from './controllers/service.controller';
+import {OrtController} from './controllers/ort.controller';
 
 //const cors = require('cors');
 const sequelize =  new Sequelize({
@@ -21,7 +23,7 @@ const sequelize =  new Sequelize({
   password: '',
   storage: 'db.sqlite'
 });
-sequelize.addModels([User, Event, Service]);
+sequelize.addModels([User, Event, Service, Ort]);
 
 
 
@@ -49,6 +51,7 @@ app.use('/login', LoginController);
 app.use('/register', RegisterController);
 app.use('/event', EventController);
 app.use('/service', ServiceController);
+app.use('/ort', OrtController);
 
 sequelize.sync().then(() => {
 // start serving the application on the given port
