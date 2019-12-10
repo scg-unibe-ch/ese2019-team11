@@ -8,12 +8,13 @@
         <ion-input name="searchvalue" placeholder="search" [(ngModel)]="search"></ion-input>
         <ion-button (click)="searchvalue()">search location</ion-button>
         <div class="inner" *ngFor="let currentOrt of orte">
+          <br>
           <div class="service">
             <h3> {{currentOrt.title}}</h3>
             <p> Address: {{currentOrt.address}}</p>
             <img style="width: 20%"src="{{currentOrt.image}}"alt="didn't work">
             <p> Description: {{currentOrt.description}}</p>
-            <p> Area: {{currentOrt.area}}</p>
+            <p> Size of Area: {{currentOrt.area}}</p>
             <p> Rent: {{currentOrt.rent}}</p>
             <p> Availability: {{currentOrt.availability}}</p>
             <p> E-Mail: {{currentOrt.email}}</p>

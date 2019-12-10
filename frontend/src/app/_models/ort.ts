@@ -24,15 +24,16 @@ export class Ort {
   toSimplification(): any {
     return {
       id: this.id,
+      userid: this.userid,
       title: this.title,
       address: this.address,
-      userid: this.userid,
-      image: this.image,
-      availability: this.availability,
-      rent: this.rent,
-      email: this.email,
       description: this.description,
-      area: this.area
+      area: this.area,
+      rent: this.rent,
+      availability: this.availability,
+      email: this.email,
+      image: this.image
+
     };
   }
 
