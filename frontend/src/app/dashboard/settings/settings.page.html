@@ -5,5 +5,11 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-list>
+    <ion-input placeholder='E-Mail' name="email" [(ngModel)]="user.email"></ion-input>
+    <ion-input type='password' placeholder='New password' name="new-password" [(ngModel)]="user.password"></ion-input>
+    <ion-button (click)='onChangePassword()'>change password</ion-button>
+    <ion-input placeholder='New name' name='name' [(ngModel)]='user.name'></ion-input>
+    <ion-button (click)='onChangeName()'>change name</ion-button>
+  </ion-list>
 </ion-content>
