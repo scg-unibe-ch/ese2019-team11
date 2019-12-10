@@ -25,10 +25,7 @@
   <ion-list>
       <ion-list-header>Stundensatz</ion-list-header>
     <ion-item>
-      <ion-range color="secondary" pin="true"></ion-range>
-    </ion-item>
-    <ion-item>
-      <ion-range min="0" max="500" step="1" snaps="true" color="secondary"></ion-range>
+      <ion-range min="0" max="500" step="1" color="secondary" snaps="true" pin="true" [ngClass]="'range-pressed'"></ion-range>
     </ion-item>
   </ion-list>
 
