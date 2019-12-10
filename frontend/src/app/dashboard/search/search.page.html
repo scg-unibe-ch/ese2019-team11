@@ -1,3 +1,9 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Search</ion-title>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content>
   <ion-button (click)="showServiceForm()"> services</ion-button>
   <ion-button (click)="showEventForm()"> events</ion-button>
@@ -11,13 +17,11 @@
         <div class="service">
           <h3> {{currentService.title}}</h3>
           <img style="width: 20%"src="{{currentService.image}}"alt="didn't work">
-          <p> {{currentService.description}}</p>
-          <p> {{currentService.typ}}</p>
-          <p> {{currentService.hourlywage}}</p>
-          <p> {{currentService.availability}}</p>
-          <p> {{currentService.email}}</p>
-          <!--mehr stuff hinzufügen   -->
-
+          <p> Description: {{currentService.description}}</p>
+          <p> Service type: {{currentService.typ}}</p>
+          <p> Availability: {{currentService.hourlywage}}</p>
+          <p> Hourly price: {{currentService.availability}}</p>
+          <p> E-Mail: {{currentService.email}}</p>
         </div>
 
 
