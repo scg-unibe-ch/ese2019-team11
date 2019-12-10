@@ -2,6 +2,11 @@
   <ion-button (click)="showServiceForm()">add service</ion-button>
   <ion-button (click)="showEventForm()">add event</ion-button>
   <ion-button (click)="showOrtForm()">add location</ion-button>
+  <ion-toolbar>
+    <ion-header>
+  <ion-title>Profile</ion-title>
+      </ion-header>
+  </ion-toolbar>
   <h1> My Posts </h1>
   <br>
   <h2> Services </h2>
@@ -13,17 +18,13 @@
       <p> {{currentService.description}}</p>
       <p> {{currentService.typ}}</p>
       <p> {{currentService.hourlywage}}</p>
-      <p> {{currentService.availability}}</p><ion-header>
-  <ion-toolbar>
-    <ion-title>Profile</ion-title>
-  </ion-toolbar>
-</ion-header>
+      <p> {{currentService.availability}}</p>
 
 <ion-content>
   <ion-button (click)="showServiceForm()">add service</ion-button>
   <ion-button (click)="showEventForm()">add event</ion-button>
   <ion-button (click)="showOrtForm()">add location</ion-button>
-  
+
   <h1> My Posts </h1>
   <br>
   <h2> Services </h2>

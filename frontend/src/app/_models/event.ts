@@ -11,10 +11,16 @@ export class Event {
     public email: string,
     public image: string
   ) {}
+
+
   static fromSimplification(instance: any): Event {
     // tslint:disable-next-line:max-line-length
-    return new Event(instance.id, instance.userid, instance.title, instance.description, instance.need, instance.wann, instance.wo, instance.email, instance.image);
+    return new Event(instance.id, instance.userid, instance.title, instance.description, instance.wann, instance.wo, instance.need, instance.email, instance.image);
   }
+
+  /**
+   * use this to change existing events
+   */
   toSimplification(): any {
     return {
       id: this.id,
@@ -29,7 +35,9 @@ export class Event {
     };
   }
 
-
+  /**
+   * use this to create events otherwise ID is -1
+   */
   toSimplificationWithoutId(): any {
     return {
       title: this.title,

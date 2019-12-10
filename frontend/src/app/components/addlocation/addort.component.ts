@@ -29,7 +29,6 @@ export class AddOrtComponent implements OnInit {
    * submits input to create new location
    */
   onSubmitDisplay() {
-    // TO-DO: get userid from user not from input!!!!
     // tslint:disable-next-line:max-line-length
     OrtService.Submit(this.ort).subscribe((instance: any) => {
         this.ort = Ort.fromSimplification(instance);

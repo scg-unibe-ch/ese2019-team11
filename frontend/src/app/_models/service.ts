@@ -16,6 +16,10 @@ S
     // tslint:disable-next-line:max-line-length
     return new Service(instance.id, instance.userid, instance.title, instance.image, instance.typ, instance.availability, instance.hourlywage, instance.description, instance.email);
   }
+
+  /**
+   * use this to change existing services
+   */
   toSimplification(): any {
     return {
       id: this.id,
@@ -30,6 +34,9 @@ S
     };
   }
 
+  /**
+   * use this to create a service otherwise ID is -1
+   */
   toSimplificationWithoutId(): any {
     return {
       title: this.title,

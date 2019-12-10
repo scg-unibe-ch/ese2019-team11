@@ -67,6 +67,7 @@ router.get('/search/:value', async (req: Request, res: Response) => {
   if (instances !== null) {
     res.statusCode = 200;
     res.send(instances.map(e => e.toSimplification()));
+    return;
   }
   res.statusCode = 300;
   res.send('null');

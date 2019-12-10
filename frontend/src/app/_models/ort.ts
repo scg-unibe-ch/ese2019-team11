@@ -8,8 +8,8 @@ export class Ort {
     public description: string,
     public area: string,
     public rent: string,
-    public email: string,
     public availability: string,
+    public email: string,
     public image: string
   ) {}
 
@@ -17,6 +17,10 @@ export class Ort {
     // tslint:disable-next-line:max-line-length
     return new Ort(instance.id, instance.userid, instance.title, instance.address, instance.description, instance.area, instance.rent, instance.availability, instance.email, instance.image);
   }
+
+  /**
+   * use this for changing existing locations
+   */
   toSimplification(): any {
     return {
       id: this.id,
@@ -32,6 +36,9 @@ export class Ort {
     };
   }
 
+  /**
+   * uuse this to create location otherwise ID is -1
+   */
   toSimplificationWithoutId(): any {
     return {
       title: this.title,
