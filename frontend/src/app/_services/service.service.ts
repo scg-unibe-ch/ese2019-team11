@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {AppComponent} from '../app.component';
 import {Service} from '../_models/service';
+import {User} from "../_models/user";
 
 @Injectable({
   providedIn: 'root'
@@ -31,5 +32,14 @@ export class ServiceService {
   static getsearchresult(value: string): Observable<object> {
     // tslint:disable-next-line:max-line-length
     return ServiceService.httpClient.get(AppComponent.backendUrl + '/service/search/' + value);
+  }
+
+  static deletepost(service: Service, user: User): Observable<object> {
+    return ServiceService.httpClient.post(AppComponent.backendUrl + '/service/delete/' + user.id, service.toSimplification());
+  }
+
+
+  static getServicesById(user: User): Observable<object> {
+    return ServiceService.httpClient.get(AppComponent.backendUrl + '/service/id/' + user.id);
   }
 }

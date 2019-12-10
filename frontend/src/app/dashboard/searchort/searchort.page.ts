@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {Ort} from '../../_models/ort';
 import {OrtService} from '../../_services/ort.service';
 import {Router} from '@angular/router';
-import {Event} from '../../_models/event';
 
 @Component({
   selector: 'app-searchort',
@@ -37,7 +36,7 @@ export class SearchOrtPage implements OnInit {
   }
   searchvalue() {
     OrtService.getsearchresult(this.search).subscribe((instances: any) => {
-      this.orte = instances.map((instance) => Event.fromSimplification(instance));
+      this.orte = instances.map((instance) => Ort.fromSimplification(instance));
       console.log(this.orte);
     });
   }

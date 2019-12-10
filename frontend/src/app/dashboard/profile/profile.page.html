@@ -5,7 +5,47 @@
   <ion-avatar>
       <img src="https://media.licdn.com/dms/image/C4D03AQFT7KQFq9-hZA/profile-displayphoto-shrink_200_200/0?e=1580947200&v=beta&t=0zddUbf8vEsVdRHYl5wfhvrOnMhjw9C74DwybCwtNhw">
     </ion-avatar>
-  <ion-list>
+  <h3> My Posts </h3>
+
+  <div class="inner" *ngFor="let currentService of services">
+    <div class="service">
+      <h3> {{currentService.title}}</h3>
+      <img style="width: 20%"src="{{currentService.image}}"alt="didn't work">
+      <p> {{currentService.description}}</p>
+      <p> {{currentService.typ}}</p>
+      <p> {{currentService.hourlywage}}</p>
+      <p> {{currentService.availability}}</p>
+      <p> {{currentService.email}}</p>
+      <ion-button (click)="deleteservice(currentService)">delete service</ion-button>
+    </div>
+  </div>
+    <div class="inner" *ngFor="let currentEvent of events">
+      <div class="service">
+        <h3> {{currentEvent.title}}</h3>
+        <img style="width: 20%"src="{{currentEvent.image}}"alt="didn't work">
+        <p> {{currentEvent.description}}</p>
+        <p> {{currentEvent.wann}}</p>
+        <p> {{currentEvent.wo}}</p>
+        <p> {{currentEvent.need}}</p>
+        <p> {{currentEvent.email}}</p>
+        <ion-button (click)="deleteevent(currentEvent)">delete event</ion-button>
+      </div>
+    </div>
+
+  <div class="inner" *ngFor="let currentOrt of orte">
+    <div class="service">
+      <h3> {{currentOrt.title}}</h3>
+      <p> {{currentOrt.address}}</p>
+      <img style="width: 20%"src="{{currentOrt.image}}"alt="didn't work">
+      <p> {{currentOrt.description}}</p>
+      <p> {{currentOrt.area}}</p>
+      <p> {{currentOrt.rent}}</p>
+      <p> {{currentOrt.availability}}</p>
+      <p> {{currentOrt.email}}</p>
+      <ion-button (click)="deleteort(currentOrt)">delete location</ion-button>
+    </div>
+  </div>
+  <!-- <ion-list>
     <ion-list-header>Angebot</ion-list-header>
 
     <ion-item>
@@ -64,5 +104,5 @@
     </ion-list>
     <ion-label>Beschreibung</ion-label>
 <ion-input placeholder="Beschreibung angeben"></ion-input>
-  </ion-segment>
+  </ion-segment>-->
 </ion-content>

@@ -19,6 +19,46 @@ router.get('/all', async (req: Request, res: Response) => {
 });
 
 /**
+ * gets all services by this user id
+ */
+router.get('/id/:id',async (req: Request, res: Response) => {
+    const id = req.params.id;
+    const instances = await Service.findAll({
+      where:{
+        userid: id
+      }
+    });
+    res.statusCode = 200;
+    res.send(instances.map(e => e.toSimplification()));
+  }
+);
+
+/**
+ * deletes a service
+ */
+router.post('/delete/:id',async (req: Request, res: Response) => {
+  const id = parseInt(req.params.id);
+    const service = new Service();
+    service.fromSimplification(req.body);
+    if(service.userid !== id) {
+      res.statusCode = 403;
+      res.send('cannot delete this post');
+      return;
+    }
+    await Service.destroy({
+      where: {id: service.id}
+    });
+    const instances = await Service.findAll({
+      where:{
+        userid: id
+      }
+    });
+    res.statusCode = 200;
+    res.send(instances.map(e => e.toSimplification()));
+  }
+);
+
+/**
  * posts a new service
  */
 router.post('/',async (req: Request, res: Response) => {

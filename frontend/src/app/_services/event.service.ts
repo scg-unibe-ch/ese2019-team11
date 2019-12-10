@@ -3,6 +3,8 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {AppComponent} from '../app.component';
 import {Event} from '../_models/event';
+import {User} from '../_models/user';
+
 
 @Injectable({
   providedIn: 'root'
@@ -30,5 +32,12 @@ export class EventService {
   static getsearchresult(value: string): Observable<object> {
     // tslint:disable-next-line:max-line-length
     return EventService.httpClient.get(AppComponent.backendUrl + '/event/search/' + value);
+  }
+  static getEventsById(user: User): Observable<object> {
+    return EventService.httpClient.get(AppComponent.backendUrl + '/event/id/' + user.id);
+  }
+
+  static deletepost(event: Event, user: User): Observable<object> {
+    return EventService.httpClient.post(AppComponent.backendUrl + '/event/delete/' + user.id, event.toSimplification());
   }
 }

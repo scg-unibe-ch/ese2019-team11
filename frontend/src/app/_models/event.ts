@@ -17,6 +17,7 @@ export class Event {
   }
   toSimplification(): any {
     return {
+      id: this.id,
       title: this.title,
       userid: this.userid,
       wann: this.wann,

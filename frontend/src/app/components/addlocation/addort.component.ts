@@ -13,7 +13,7 @@ import {AppComponent} from '../../app.component';
 
 export class AddOrtComponent implements OnInit {
 
-  ort = new Ort(-1, AppComponent.user.id.toString(), '', '', '', '', AppComponent.user.email, '', '');
+  ort = new Ort(-1, AppComponent.user.id.toString(), '', '', '', '', '', AppComponent.user.email, '', '');
   filecontent = '';
 
   constructor(

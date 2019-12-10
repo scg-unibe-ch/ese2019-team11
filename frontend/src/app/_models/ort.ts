@@ -4,6 +4,7 @@ export class Ort {
     public id: number,
     public userid: string,
     public title: string,
+    public address: string,
     public description: string,
     public area: string,
     public rent: string,
@@ -14,11 +15,13 @@ export class Ort {
 
   static fromSimplification(instance: any): Ort {
     // tslint:disable-next-line:max-line-length
-    return new Ort(instance.id, instance.userid, instance.title, instance.description, instance.area, instance.rent, instance.availability, instance.email, instance.image);
+    return new Ort(instance.id, instance.userid, instance.title, instance.address, instance.description, instance.area, instance.rent, instance.availability, instance.email, instance.image);
   }
   toSimplification(): any {
     return {
+      id: this.id,
       title: this.title,
+      address: this.address,
       userid: this.userid,
       image: this.image,
       availability: this.availability,

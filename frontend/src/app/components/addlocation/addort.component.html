@@ -8,6 +8,7 @@
         <ion-input type="title" placeholder="Title" name="title" [(ngModel)]="ort.title"></ion-input>
         <ion-textarea rows = "6" cols="20" type="description" placeholder="Description" name="description" [(ngModel)]="ort.description"></ion-textarea>
         <ion-input type="rent" placeholder="Rent" name="rent" [(ngModel)]="ort.rent"></ion-input>
+        <ion-input type="address" placeholder="Address" name="address" [(ngModel)]="ort.address"></ion-input>
         <ion-input type="availability" placeholder="Availability" name="availability" [(ngModel)]="ort.availability"></ion-input>
         <img *ngIf="ort.image.length>5" style="width: 20%" src="{{ort.image}}" alt="image" />
         <ion-input type="file" value="hochladen" (change)="uploadMethod($event)"></ion-input>

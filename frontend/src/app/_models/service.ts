@@ -18,6 +18,7 @@ S
   }
   toSimplification(): any {
     return {
+      id: this.id,
       title: this.title,
       userid: this.userid,
       image: this.image,

@@ -33,6 +33,9 @@ export class Ort extends Model<Ort> {
   @Column
   rent !: string;
 
+  @Column
+  address !: string;
+
 
   toSimplification(): any {
     return {
@@ -44,7 +47,8 @@ export class Ort extends Model<Ort> {
       'availability': this.availability,
       'email': this.email,
       'rent': this.rent,
-      'image': this.image
+      'image': this.image,
+      'address': this.address
     };
   }
 
@@ -57,6 +61,7 @@ export class Ort extends Model<Ort> {
     this.rent = simplification['rent'];
     this.availability = simplification['availability'];
     this.email = simplification['email'];
+    this.address = simplification['address'];
     this.image = simplification['image'];
   }
 
