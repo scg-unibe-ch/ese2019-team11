@@ -13,7 +13,66 @@
       <p> {{currentService.description}}</p>
       <p> {{currentService.typ}}</p>
       <p> {{currentService.hourlywage}}</p>
-      <p> {{currentService.availability}}</p>
+      <p> {{currentService.availability}}</p><ion-header>
+  <ion-toolbar>
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button (click)="showServiceForm()">add service</ion-button>
+  <ion-button (click)="showEventForm()">add event</ion-button>
+  <ion-button (click)="showOrtForm()">add location</ion-button>
+  
+  <h1> My Posts </h1>
+  <br>
+  <h2> Services </h2>
+  <br>
+  <div class="inner" *ngFor="let currentService of services">
+    <div class="service">
+      <h3> {{currentService.title}}</h3>
+      <img style="width: 20%"src="{{currentService.image}}"alt="didn't work">
+      <p> Description: {{currentService.description}}</p>
+      <p> Service type: {{currentService.typ}}</p>
+      <p> Availability: {{currentService.hourlywage}}</p>
+      <p> Hourly Wage: {{currentService.availability}}</p>
+      <p> E-Mail: {{currentService.email}}</p>
+      <ion-button (click)="deleteservice(currentService)">delete service</ion-button>
+    </div>
+  </div>
+  <br>
+  <h2> Events </h2>
+  <br>
+    <div class="inner" *ngFor="let currentEvent of events">
+      <div class="event">
+        <h3> {{currentEvent.title}}</h3>
+        <img style="width: 20%"src="{{currentEvent.image}}"alt="didn't work">
+        <p> Description: {{currentEvent.description}}</p>
+        <p> When: {{currentEvent.wann}}</p>
+        <p> Where: {{currentEvent.wo}}</p>
+        <p> Services needed: {{currentEvent.need}}</p>
+        <p> E-Mail: {{currentEvent.email}}</p>
+        <ion-button (click)="deleteevent(currentEvent)">delete event</ion-button>
+      </div>
+    </div>
+  <br>
+  <h2> Locations </h2>
+  <br>
+  <div class="inner" *ngFor="let currentOrt of orte">
+    <div class="ort">
+      <h3> {{currentOrt.title}}</h3>
+      <p> Address: {{currentOrt.address}}</p>
+      <img style="width: 20%"src="{{currentOrt.image}}"alt="didn't work">
+      <p> Description: {{currentOrt.description}}</p>
+      <p> Area: {{currentOrt.area}}</p>
+      <p> Rent: {{currentOrt.rent}}</p>
+      <p> Availability: {{currentOrt.availability}}</p>
+      <p> E-Mail: {{currentOrt.email}}</p>
+      <ion-button (click)="deleteort(currentOrt)">delete location</ion-button>
+    </div>
+  </div>
+</ion-content>
+
       <p> {{currentService.email}}</p>
       <ion-button (click)="deleteservice(currentService)">delete service</ion-button>
     </div>
