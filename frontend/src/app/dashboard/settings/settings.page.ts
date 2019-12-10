@@ -3,6 +3,8 @@ import {User} from '../../_models/user';
 import {UpdateService} from '../../_services/update.service';
 import {Router} from '@angular/router';
 import {ToastController} from '@ionic/angular';
+import {LoginService} from '../../_services/login.service';
+import {AppComponent} from '../../app.component';
 
 
 @Component({
@@ -13,6 +15,9 @@ import {ToastController} from '@ionic/angular';
 export class SettingsPage implements OnInit {
 
   user = new User(-1, '', '', '');
+  password: string;
+  newpassword: string;
+  newpasswordrepeat: string;
 
   constructor(
     public router: Router,
@@ -20,29 +25,31 @@ export class SettingsPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.user = AppComponent.user;
   }
 
-  onChangePassword(){
-    UpdateService.Get(this.user.email).subscribe((instance: any) => {
-      this.user = new User(instance.id, instance.name, instance.email, instance.password);
-    },
-      (error) => {
-        this.openToast('Password update failed.');
-        console.log(error);
-    });
-    UpdateService.Put(this.user.email, this.user.password).subscribe((instance: any) => {
-      this.user = new User(instance.id, instance.name, instance.email, instance.password);
-      this.openToast('Password udate successful.');
-    },
-    (error) => {
-      this.openToast('Password update failed.');
-      console.log(error);
-    });
-    console.log(this.user);
+  onChangePassword() {
+    if (this.newpassword === this.newpasswordrepeat) {
+      LoginService.changepassword(this.password, this.newpassword, AppComponent.user).subscribe((instance: any) => {
+          AppComponent.user = new User(instance.id, instance.name, instance.email, instance.password);
+          this.openToast('Password udate successful.');
+        },
+        (error) => {
+          this.openToast('Password update failed.');
+          console.log(error);
+        });
+      console.log(this.user);
+    }
   }
 
-  onChangeName(){
 
+  onChange() {
+    LoginService.updateUser(this.user).subscribe((instance: any) => {
+      AppComponent.user = new User(instance.id, instance.name, instance.email, instance.password);
+      this.openToast('Update successful');
+    }, (error: any) => {
+      this.openToast('Update failed');
+    });
   }
 
   async openToast(output) {
@@ -56,4 +63,7 @@ export class SettingsPage implements OnInit {
     toast.present();
   }
 
+  onChangeemail() {
+
+  }
 }

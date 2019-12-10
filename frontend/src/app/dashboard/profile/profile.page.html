@@ -2,11 +2,10 @@
   <ion-button (click)="showServiceForm()">add service</ion-button>
   <ion-button (click)="showEventForm()">add event</ion-button>
   <ion-button (click)="showOrtForm()">add location</ion-button>
-  <ion-avatar>
-      <img src="https://media.licdn.com/dms/image/C4D03AQFT7KQFq9-hZA/profile-displayphoto-shrink_200_200/0?e=1580947200&v=beta&t=0zddUbf8vEsVdRHYl5wfhvrOnMhjw9C74DwybCwtNhw">
-    </ion-avatar>
-  <h3> My Posts </h3>
-
+  <h1> My Posts </h1>
+  <br>
+  <h2> Services </h2>
+  <br>
   <div class="inner" *ngFor="let currentService of services">
     <div class="service">
       <h3> {{currentService.title}}</h3>
@@ -19,8 +18,11 @@
       <ion-button (click)="deleteservice(currentService)">delete service</ion-button>
     </div>
   </div>
+  <br>
+  <h2> Events </h2>
+  <br>
     <div class="inner" *ngFor="let currentEvent of events">
-      <div class="service">
+      <div class="event">
         <h3> {{currentEvent.title}}</h3>
         <img style="width: 20%"src="{{currentEvent.image}}"alt="didn't work">
         <p> {{currentEvent.description}}</p>
@@ -31,9 +33,11 @@
         <ion-button (click)="deleteevent(currentEvent)">delete event</ion-button>
       </div>
     </div>
-
+  <br>
+  <h2> Locations </h2>
+  <br>
   <div class="inner" *ngFor="let currentOrt of orte">
-    <div class="service">
+    <div class="ort">
       <h3> {{currentOrt.title}}</h3>
       <p> {{currentOrt.address}}</p>
       <img style="width: 20%"src="{{currentOrt.image}}"alt="didn't work">
@@ -45,61 +49,4 @@
       <ion-button (click)="deleteort(currentOrt)">delete location</ion-button>
     </div>
   </div>
-  <!-- <ion-list>
-    <ion-list-header>Angebot</ion-list-header>
-
-    <ion-item>
-      <ion-label>Angebot</ion-label>
-      <ion-select placeholder="Wähle dein Angebot">
-        <ion-select-option value="Fotograf">Fotografie</ion-select-option>
-        <ion-select-option value="Catering">Catering</ion-select-option>
-        <ion-select-option value="DJ">DJ</ion-select-option>
-        <ion-select-option value="Live Unterhaltung">Live Unterhaltung</ion-select-option>
-        <ion-select-option value="Eventtechnik">Eventtechnik</ion-select-option>
-        <ion-select-option value="Eventplanung">Eventplanung</ion-select-option>
-        <ion-select-option value="Sicherheit">Sicherheit</ion-select-option>
-      </ion-select>
-    </ion-item>
-  </ion-list>
-
-  <ion-list>
-      <ion-list-header>Stundensatz</ion-list-header>
-    <ion-item>
-      <ion-range min="0" max="500" step="1" color="secondary" snaps="true" pin="true" [ngClass]="'range-pressed'"></ion-range>
-    </ion-item>
-  </ion-list>
-
-  <ion-segment (ionChange)="segmentChanged($event)" color="secondary">
-    <ion-segment-button value="Immer Verfügbar">
-      <ion-label>Immer Verfügbar</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="Auf Anfrage">
-      <ion-label>Auf Anfrage</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="Nicht Verfügbar">
-      <ion-label>Nicht Verfügbar</ion-label>
-    </ion-segment-button>
-
-    <ion-list>
-      <ion-radio-group>
-        <ion-list-header>
-          <ion-label>Geschlecht</ion-label>
-        </ion-list-header>
-        <ion-item>
-          <ion-label>Weiblich</ion-label>
-          <ion-radio slot="start" value="Weiblich" checked></ion-radio>
-        </ion-item>
-        <ion-item>
-          <ion-label>Männlich</ion-label>
-          <ion-radio slot="start" value="Männlich"></ion-radio>
-        </ion-item>
-        <ion-item>
-          <ion-label>Keine Angabe</ion-label>
-          <ion-radio slot="start" value="Keine Angabe"></ion-radio>
-        </ion-item>
-      </ion-radio-group>
-    </ion-list>
-    <ion-label>Beschreibung</ion-label>
-<ion-input placeholder="Beschreibung angeben"></ion-input>
-  </ion-segment>-->
 </ion-content>

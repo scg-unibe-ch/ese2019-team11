@@ -29,4 +29,17 @@ export class Event {
     };
   }
 
+
+  toSimplificationWithoutId(): any {
+    return {
+      title: this.title,
+      userid: this.userid,
+      wann: this.wann,
+      description: this.description,
+      wo: this.wo,
+      need: this.need,
+      email: this.email,
+      image: this.image
+    };
+  }
 }

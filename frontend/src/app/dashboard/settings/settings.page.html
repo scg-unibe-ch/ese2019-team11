@@ -1,3 +1,4 @@
+<script src="../../components/addservice/addservice.component.ts"></script>
 <ion-header>
   <ion-toolbar>
     <ion-title>settings</ion-title>
@@ -6,10 +7,29 @@
 
 <ion-content>
   <ion-list>
-    <ion-input placeholder='E-Mail' name="email" [(ngModel)]="user.email"></ion-input>
-    <ion-input type='password' placeholder='New password' name="new-password" [(ngModel)]="user.password"></ion-input>
-    <ion-button (click)='onChangePassword()'>change password</ion-button>
-    <ion-input placeholder='New name' name='name' [(ngModel)]='user.name'></ion-input>
-    <ion-button (click)='onChangeName()'>change name</ion-button>
+  <ion-grid>
+    <ion-row>
+      <ion-col><ion-input type='password' placeholder='Old password' name="old-password" [(ngModel)]="password"></ion-input></ion-col>
+      <ion-col><ion-label for="old-password"> Old Password</ion-label></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col><ion-input type='password' placeholder='New password' name="newpassword" [(ngModel)]="newpassword"></ion-input></ion-col>
+      <ion-col><ion-label for="newpassword">New password</ion-label></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col><ion-input type='password' placeholder='New password repeat' name="newpasswordrepeat" [(ngModel)]="newpasswordrepeat"></ion-input></ion-col>
+      <ion-col><ion-label for="newpasswordrepeat">New password repeat</ion-label></ion-col>
+    </ion-row>
+    <ion-row> <ion-button (click)='onChangePassword()'>change password</ion-button></ion-row>
+    <ion-row>
+      <ion-col><ion-input placeholder='E-Mail' name="email" [(ngModel)]="user.email"></ion-input></ion-col>
+      <ion-col><ion-label for="email">E-Mail</ion-label></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col><ion-input placeholder='New name' name='name' [(ngModel)]='user.name'></ion-input></ion-col>
+      <ion-col><ion-label for="name">Name</ion-label></ion-col>
+    </ion-row>
+    <ion-row><ion-button (click)='onChange()'>change name</ion-button></ion-row>
+  </ion-grid>
   </ion-list>
 </ion-content>

@@ -5,6 +5,7 @@ import {Router} from '@angular/router';
 import {ToastController} from '@ionic/angular';
 import {User} from '../../_models/user';
 import {AppComponent} from "../../app.component";
+import {ProfilePage} from "../../dashboard/profile/profile.page";
 
 
 @Component({
@@ -29,10 +30,10 @@ export class AddEventComponent implements OnInit {
 // TO-DO: get userid from user not from input!!!!
   onSubmitDisplay() {
     // tslint:disable-next-line:max-line-length
-    EventService.Submit(this.event).subscribe((instance: any) => {
+    EventService.Submit(this.event).subscribe(async (instance: any) => {
         this.event = Event.fromSimplification(instance);
-        this.openToast('Service post successful. Redirecting.');
-        this.router.navigate(['/dashboard']);
+        await this.openToast('Service post successful. Redirecting.');
+        this.router.navigate(['/dashboard/profile']);
       },
       (error) => {
         this.openToast('Event post failed.');

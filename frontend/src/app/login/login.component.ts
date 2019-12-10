@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
       this.user = new User(instance.id, instance.name, instance.email, instance.password);
       AppComponent.user = this.user;
       this.openToast('Login successful. Redirecting.');
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/dashboard/search']);
     },
       (error) => {
       this.openToast('Login failed.');

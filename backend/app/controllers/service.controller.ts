@@ -72,21 +72,32 @@ router.post('/',async (req: Request, res: Response) => {
 
 router.get('/search/:value', async (req: Request, res: Response) => {
   const value = req.params.value;
-  const instances = await Service.findAll({
-    where: Sequelize.or({
-        title: {[Sequelize.Op.like]: '%' + value + '%'}},
-      {description:{[Sequelize.Op.like]: '%' + value + '%'},
-      },
-      {hourlywage:{[Sequelize.Op.like]: '%' + value + '%'},
-      },
-      {availability:{[Sequelize.Op.like]: '%' + value + '%'},
-      },
-      {email:{[Sequelize.Op.like]: '%' + value + '%'},
-      },
-      {typ:{[Sequelize.Op.like]: '%' + value + '%'},
-      }
-    )
-  });
+  let instances: Service[];
+  if(value === '*') {
+    instances = await Service.findAll();
+  } else {
+    instances = await Service.findAll({
+      where: Sequelize.or({
+          title: {[Sequelize.Op.like]: '%' + value + '%'}
+        },
+        {
+          description: {[Sequelize.Op.like]: '%' + value + '%'},
+        },
+        {
+          hourlywage: {[Sequelize.Op.like]: '%' + value + '%'},
+        },
+        {
+          availability: {[Sequelize.Op.like]: '%' + value + '%'},
+        },
+        {
+          email: {[Sequelize.Op.like]: '%' + value + '%'},
+        },
+        {
+          typ: {[Sequelize.Op.like]: '%' + value + '%'},
+        }
+      )
+    });
+  }
   if (instances !== null) {
     res.statusCode = 200;
     res.send(instances.map(e => e.toSimplification()));

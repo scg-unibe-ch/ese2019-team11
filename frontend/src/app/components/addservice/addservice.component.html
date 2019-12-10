@@ -6,7 +6,7 @@
       </ion-card-header>
       <ion-card-content >
         <ion-input type="title" placeholder="Title" name="title" [(ngModel)]="service.title"></ion-input>
-        <ion-textarea rows = "6" cols="20" type="description" placeholder="Description" name="description" [(ngModel)]="service.description"></ion-textarea>
+        <textarea rows = "6" cols="20" type="description" placeholder="Description" name="description" [(ngModel)]="service.description"></textarea>
         <ion-input type="Hourlywage" placeholder="Hourly Wage?" name="hourlywage" [(ngModel)]="service.hourlywage"></ion-input>
         <ion-input type="Availability" placeholder="availability?" name="availability" [(ngModel)]="service.availability"></ion-input>
         <img *ngIf="service.image.length>5" style="width: 20%" src="{{service.image}}" alt="image" />

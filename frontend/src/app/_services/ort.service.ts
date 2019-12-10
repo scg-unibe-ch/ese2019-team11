@@ -24,13 +24,14 @@ export class OrtService {
 
   static Submit(ort: Ort): Observable<object> {
     // tslint:disable-next-line:max-line-length
-    return OrtService.httpClient.post(AppComponent.backendUrl + '/ort/' , ort.toSimplification());
+    return OrtService.httpClient.post(AppComponent.backendUrl + '/ort/' , ort.toSimplificationWithoutId());
   }
   static getOrt(): Observable<object> {
     // tslint:disable-next-line:max-line-length
     return OrtService.httpClient.get(AppComponent.backendUrl + '/ort/all');
   }
   static getsearchresult(value: string): Observable<object> {
+    value = value.length > 0 ? value : '*';
     // tslint:disable-next-line:max-line-length
     return OrtService.httpClient.get(AppComponent.backendUrl + '/ort/search/' + value);
   }

@@ -33,23 +33,35 @@ router.post('/',async (req: Request, res: Response) => {
 
 router.get('/search/:value', async (req: Request, res: Response) => {
   const value = req.params.value;
-  const instances = await Ort.findAll({
-    where: Sequelize.or({
-        title: {[Sequelize.Op.like]: '%' + value + '%'}},
-      {description:{[Sequelize.Op.like]: '%' + value + '%'},
-      },
-      {area:{[Sequelize.Op.like]: '%' + value + '%'},
-      },
-      {rent:{[Sequelize.Op.like]: '%' + value + '%'},
-      },
-      {availability:{[Sequelize.Op.like]: '%' + value + '%'},
-      },
-      {email:{[Sequelize.Op.like]: '%' + value + '%'},
-      },
-      {address:{[Sequelize.Op.like]: '%' + value + '%'},
-      }
-    )
-  });
+  let instances: Ort[];
+  if(value === '*') {
+    instances = await Ort.findAll();
+  } else {
+    instances = await Ort.findAll({
+      where: Sequelize.or({
+          title: {[Sequelize.Op.like]: '%' + value + '%'}
+        },
+        {
+          description: {[Sequelize.Op.like]: '%' + value + '%'},
+        },
+        {
+          area: {[Sequelize.Op.like]: '%' + value + '%'},
+        },
+        {
+          rent: {[Sequelize.Op.like]: '%' + value + '%'},
+        },
+        {
+          availability: {[Sequelize.Op.like]: '%' + value + '%'},
+        },
+        {
+          email: {[Sequelize.Op.like]: '%' + value + '%'},
+        },
+        {
+          address: {[Sequelize.Op.like]: '%' + value + '%'},
+        }
+      )
+    });
+  }
   if (instances !== null) {
     res.statusCode = 200;
     res.send(instances.map(e => e.toSimplification()));

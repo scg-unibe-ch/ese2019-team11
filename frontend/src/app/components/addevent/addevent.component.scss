@@ -1,0 +1,10 @@
+textarea{
+  border: none;
+  background-color: inherit;
+  margin-left: 3%;
+}
+
+textarea::placeholder{
+  font-weight: bold;
+  --font-color: #f6f7fa;
+}

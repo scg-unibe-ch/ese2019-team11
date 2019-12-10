@@ -17,7 +17,6 @@ import {Ort} from '../../_models/ort';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
-
   services: Service[];
   events: Event[];
   orte: Ort[];

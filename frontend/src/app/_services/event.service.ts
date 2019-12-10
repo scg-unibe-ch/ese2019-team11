@@ -23,13 +23,14 @@ export class EventService {
 
   static Submit(event: Event): Observable<object> {
     // tslint:disable-next-line:max-line-length
-    return EventService.httpClient.post(AppComponent.backendUrl + '/event/' , event.toSimplification());
+    return EventService.httpClient.post(AppComponent.backendUrl + '/event/' , event.toSimplificationWithoutId());
   }
   static getEvents(): Observable<object> {
     // tslint:disable-next-line:max-line-length
     return EventService.httpClient.get(AppComponent.backendUrl + '/event/all');
   }
   static getsearchresult(value: string): Observable<object> {
+    value = value.length > 0 ? value : '*';
     // tslint:disable-next-line:max-line-length
     return EventService.httpClient.get(AppComponent.backendUrl + '/event/search/' + value);
   }

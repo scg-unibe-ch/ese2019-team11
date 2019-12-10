@@ -1,6 +1,7 @@
 import {Router, Request, Response} from 'express';
 import {Event} from '../models/Event.model';
 import {Sequelize} from 'sequelize-typescript';
+import {Service} from "../models/service.model";
 
 
 
@@ -66,6 +67,9 @@ router.post('/delete/:id',async (req: Request, res: Response) => {
 router.post('/',async (req: Request, res: Response) => {
     const event = new Event();
     event.fromSimplification(req.body);
+    while(event.description.indexOf('\n') !== -1) {
+      event.description = event.description.replace('\n', '<br>');
+    }
     await event.save();
     res.statusCode = 200;
     res.send(event.toSimplification());
@@ -74,21 +78,32 @@ router.post('/',async (req: Request, res: Response) => {
 
 router.get('/search/:value', async (req: Request, res: Response) => {
   const value = req.params.value;
-  const instances = await Event.findAll({
-    where: Sequelize.or({
-        title: {[Sequelize.Op.like]: '%' + value + '%'}},
-      {description:{[Sequelize.Op.like]: '%' + value + '%'},
-      },
-      {wann:{[Sequelize.Op.like]: '%' + value + '%'},
-      },
-      {wo:{[Sequelize.Op.like]: '%' + value + '%'},
-      },
-      {need:{[Sequelize.Op.like]: '%' + value + '%'},
-      },
-      {email:{[Sequelize.Op.like]: '%' + value + '%'},
-      }
-    )
-  });
+  let instances: Event[];
+  if(value === '*') {
+    instances = await Event.findAll();
+  } else {
+    instances = await Event.findAll({
+      where: Sequelize.or({
+          title: {[Sequelize.Op.like]: '%' + value + '%'}
+        },
+        {
+          description: {[Sequelize.Op.like]: '%' + value + '%'},
+        },
+        {
+          wann: {[Sequelize.Op.like]: '%' + value + '%'},
+        },
+        {
+          wo: {[Sequelize.Op.like]: '%' + value + '%'},
+        },
+        {
+          need: {[Sequelize.Op.like]: '%' + value + '%'},
+        },
+        {
+          email: {[Sequelize.Op.like]: '%' + value + '%'},
+        }
+      )
+    });
+  }
   if (instances !== null) {
     res.statusCode = 200;
     res.send(instances.map(e => e.toSimplification()));

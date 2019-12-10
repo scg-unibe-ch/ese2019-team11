@@ -23,7 +23,7 @@ export class ServiceService {
 
   static Submit(service: Service): Observable<object> {
     // tslint:disable-next-line:max-line-length
-    return ServiceService.httpClient.post(AppComponent.backendUrl + '/service/' , service.toSimplification());
+    return ServiceService.httpClient.post(AppComponent.backendUrl + '/service/' , service.toSimplificationWithoutId());
   }
   static getServices(): Observable<object> {
     // tslint:disable-next-line:max-line-length
@@ -31,6 +31,7 @@ export class ServiceService {
   }
   static getsearchresult(value: string): Observable<object> {
     // tslint:disable-next-line:max-line-length
+    value = value.length > 0 ? value : '*';
     return ServiceService.httpClient.get(AppComponent.backendUrl + '/service/search/' + value);
   }
 

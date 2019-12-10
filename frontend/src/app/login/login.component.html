@@ -5,18 +5,20 @@
       <ion-card-title>Please log in.</ion-card-title>
     </ion-card-header>
     <ion-card-content >
+      <form>
       <ion-input placeholder="E-Mail" name="name" [(ngModel)]="user.email"></ion-input>
       <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="user.password"></ion-input>
       <ion-grid>
         <ion-row>
           <ion-col>
-            <div ><ion-button (click)="onLoginDisplay()">Login</ion-button></div>
+            <div ><ion-button type="submit" (click)="onLoginDisplay()">Login</ion-button></div>
           </ion-col>
           <ion-col>
             <div><ion-button (click)="onRegisterDisplay()">Register</ion-button></div>
           </ion-col>
         </ion-row>
         </ion-grid>
+      </form>
     </ion-card-content>
   </ion-card>
   </ion-row>

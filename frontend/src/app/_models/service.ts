@@ -29,4 +29,17 @@ S
       email: this.email
     };
   }
+
+  toSimplificationWithoutId(): any {
+    return {
+      title: this.title,
+      userid: this.userid,
+      image: this.image,
+      description: this.description,
+      typ: this.typ,
+      hourlywage: this.hourlywage,
+      availability: this.availability,
+      email: this.email
+    };
+  }
 }

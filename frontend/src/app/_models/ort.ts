@@ -31,4 +31,18 @@ export class Ort {
       area: this.area
     };
   }
+
+  toSimplificationWithoutId(): any {
+    return {
+      title: this.title,
+      address: this.address,
+      userid: this.userid,
+      image: this.image,
+      availability: this.availability,
+      rent: this.rent,
+      email: this.email,
+      description: this.description,
+      area: this.area
+    };
+  }
 }
