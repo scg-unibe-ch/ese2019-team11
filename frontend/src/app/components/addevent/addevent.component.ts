@@ -3,9 +3,7 @@ import {EventService} from '../../_services/event.service';
 import {Event} from '../../_models/event';
 import {Router} from '@angular/router';
 import {ToastController} from '@ionic/angular';
-import {User} from '../../_models/user';
-import {AppComponent} from "../../app.component";
-import {ProfilePage} from "../../dashboard/profile/profile.page";
+import {AppComponent} from '../../app.component';
 
 
 @Component({
@@ -27,9 +25,10 @@ export class AddEventComponent implements OnInit {
   ngOnInit() {
   }
 
-// TO-DO: get userid from user not from input!!!!
+  /**
+   * submits input to create a new event
+   */
   onSubmitDisplay() {
-    // tslint:disable-next-line:max-line-length
     EventService.Submit(this.event).subscribe(async (instance: any) => {
         this.event = Event.fromSimplification(instance);
         await this.openToast('Service post successful. Redirecting.');
@@ -52,6 +51,9 @@ export class AddEventComponent implements OnInit {
     toast.present();
   }
 
+  /**
+   * for uploading images
+   */
   uploadMethod(event) {
 
     console.log('changed image');
@@ -67,7 +69,6 @@ export class AddEventComponent implements OnInit {
 
       reader.onload = (res: any) => { // called once readAsDataURL is completed
 
-        // this.resizeLogoAndSave(res.target.result);
         this.event.image = res.target.result;
 
       };

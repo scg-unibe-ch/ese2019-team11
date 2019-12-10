@@ -9,7 +9,7 @@ import {EventService} from './_services/event.service';
 import {ServiceService} from './_services/service.service';
 import {OrtService} from './_services/ort.service';
 import {User} from './_models/user';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',

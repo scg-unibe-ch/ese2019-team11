@@ -1,8 +1,5 @@
-// import everything from express and assign it to the express variable
-import express from 'express';
 
-// import all the controllers. If you add a new controller, make sure to import it here as well.
-//VERY IMPORTANT!!!! WHEN IMPORTING MODELS CONSIDER CAPITALIZATION OF LETTERS!!!!!!
+import express from 'express';
 import {Sequelize} from 'sequelize-typescript';
 import {User} from './models/User.model';
 import {Event} from './models/Event.model';
@@ -15,7 +12,10 @@ import {EventController} from './controllers/event.controller';
 import {ServiceController} from './controllers/service.controller';
 import {OrtController} from './controllers/ort.controller';
 
-//const cors = require('cors');
+/**
+ * backend runs on this file
+ */
+
 const sequelize =  new Sequelize({
   database: 'development',
   dialect: 'sqlite',

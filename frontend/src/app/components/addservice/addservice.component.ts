@@ -24,6 +24,9 @@ export class AddServiceComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * submits input to create service
+   */
   onSubmitDisplay() {
     // TO-DO: get userid from user not from input!!!!
     // tslint:disable-next-line:max-line-length
@@ -49,7 +52,9 @@ export class AddServiceComponent implements OnInit {
     toast.present();
   }
 
-
+  /**
+   * for uploading pictures
+   */
   uploadMethod(event) {
 
     console.log('changed image');

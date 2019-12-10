@@ -25,6 +25,9 @@ export class AddOrtComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * submits input to create new location
+   */
   onSubmitDisplay() {
     // TO-DO: get userid from user not from input!!!!
     // tslint:disable-next-line:max-line-length
@@ -50,7 +53,9 @@ export class AddOrtComponent implements OnInit {
     toast.present();
   }
 
-
+  /**
+   * for uploading pictures
+   */
   uploadMethod(event) {
 
     console.log('changed image');
@@ -66,7 +71,6 @@ export class AddOrtComponent implements OnInit {
 
       reader.onload = (res: any) => { // called once readAsDataURL is completed
 
-        // this.resizeLogoAndSave(res.target.result);
         this.ort.image = res.target.result;
 
       };

@@ -1,6 +1,9 @@
 import {User} from './User.model';
 import {Table, Column, Model, HasMany, BelongsTo, ForeignKey, DataType} from 'sequelize-typescript';
 
+/**
+ * model for the Ort(locations) table
+ */
 
 @Table
 export class Ort extends Model<Ort> {

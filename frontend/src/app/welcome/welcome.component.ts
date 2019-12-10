@@ -23,6 +23,9 @@ export class WelcomeComponent implements OnInit {
     this.slides.slideNext();
   }
 
+  /**
+   * goes to login
+   */
   gotologin() {
     this.router.navigate(['/login']);
   }

@@ -1,6 +1,9 @@
 import {Table, Column, Model, HasMany, BelongsTo, ForeignKey, DataType} from 'sequelize-typescript';
 import {User} from './User.model';
 
+/**
+ * model for the Service table
+ */
 
 @Table
 export class Service extends Model<Service> {

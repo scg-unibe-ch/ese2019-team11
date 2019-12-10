@@ -1,7 +1,6 @@
 import {Router, Request, Response} from 'express';
 import {Ort} from '../models/Ort.model';
 import {Sequelize} from 'sequelize-typescript';
-import {Service} from "../models/service.model";
 
 
 const router: Router = Router();
@@ -31,6 +30,9 @@ router.post('/',async (req: Request, res: Response) => {
   }
 );
 
+/**
+ * gets all locations which at least partially match 'value' in one of their parameters of type string
+ */
 router.get('/search/:value', async (req: Request, res: Response) => {
   const value = req.params.value;
   let instances: Ort[];

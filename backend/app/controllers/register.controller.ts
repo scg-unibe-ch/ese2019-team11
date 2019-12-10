@@ -3,8 +3,13 @@ import {User} from '../models/User.model';
 
 const router: Router = Router();
 
-// TO-DO: this is code from login controller! change it to fit register!
+/**
+ * for creating new users
+ */
 
+/**
+ * gets all users
+ */
 router.get('/all', async (req: Request, res: Response) => {
   const instances = await User.findAll();
   if (instances !== null) {
@@ -14,6 +19,10 @@ router.get('/all', async (req: Request, res: Response) => {
   res.statusCode = 300;
   res.send('null');
 });
+
+/**
+ * creates a new user
+ */
 router.post('/:email/:password/:name',async (req: Request, res: Response) => {
     const email = req.params.email;
     const password = req.params.password;

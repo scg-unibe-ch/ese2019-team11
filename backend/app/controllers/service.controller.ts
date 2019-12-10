@@ -2,6 +2,9 @@ import {Router, Request, Response} from 'express';
 import {Service} from '../models/Service.model';
 import {Sequelize} from 'sequelize-typescript';
 
+/**
+ * for altering the Service table
+ */
 
 const router: Router = Router();
 
@@ -70,6 +73,9 @@ router.post('/',async (req: Request, res: Response) => {
   }
 );
 
+/**
+ * gets all services which at least partially match 'value' in one of their parameters of type string
+ */
 router.get('/search/:value', async (req: Request, res: Response) => {
   const value = req.params.value;
   let instances: Service[];

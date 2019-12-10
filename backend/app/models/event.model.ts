@@ -1,6 +1,9 @@
 import {Table, Column, Model, HasMany, BelongsTo, ForeignKey} from 'sequelize-typescript';
 import {User} from './User.model';
 
+/**
+ * model for the Event table
+ */
 
 @Table
 export class Event extends Model<Event> {
@@ -33,6 +36,9 @@ export class Event extends Model<Event> {
   @Column
   email !: string;
 
+  /**
+   *
+   */
   toSimplification(): any {
     return {
       'id': this.id,

@@ -1,10 +1,16 @@
 import {Router, Request, Response} from 'express';
 import {User} from '../models/User.model';
 
+/**
+ * for altering users in the User table as well as for login
+ */
+
 
 const router: Router = Router();
 
-
+/**
+ * returns all users
+ */
 router.get('/all', async (req: Request, res: Response) => {
   const instances = await User.findAll();
   if (instances !== null) {
@@ -15,6 +21,9 @@ router.get('/all', async (req: Request, res: Response) => {
   res.send('null');
 });
 
+/**
+ * for changing the current users password, old password is required
+ */
 router.put( '/changepassword/:newpassword/:oldpassword/:id', async(req: Request, res: Response) => {
   const oldpassword = req.params.oldpassword;
   const newpassword = req.params.newpassword;
@@ -33,6 +42,9 @@ router.put( '/changepassword/:newpassword/:oldpassword/:id', async(req: Request,
   }
 });
 
+/**
+ * for changing email and/or username
+ */
 router.put( '/updateUser', async(req: Request, res: Response) => {
   const user = await User.findById(req.body.id);
   if(user !== null) {
@@ -47,6 +59,9 @@ router.put( '/updateUser', async(req: Request, res: Response) => {
   res.send('nope');
 });
 
+/**
+ * for login, compares email and password to existing users
+ */
 router.post('/:email/:password',async (req: Request, res: Response) => {
     const email = req.params.email;
     const password = req.params.password;

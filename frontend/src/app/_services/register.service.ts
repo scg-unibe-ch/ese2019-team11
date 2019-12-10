@@ -10,7 +10,7 @@ export class RegisterService {
 
   static httpClient: HttpClient;
 
-  constructor(){}
+  constructor() {}
 
   init(http: HttpClient) {
     RegisterService.httpClient = http;
@@ -20,6 +20,9 @@ export class RegisterService {
     RegisterService.httpClient = hC;
   }
 
+  /**
+   * creates a new user
+   */
   static Register(email: string, password: string, name: string): Observable<object> {
     return RegisterService.httpClient.post(AppComponent.backendUrl + '/register/' + email + '/' + password + '/' + name, null);
   }

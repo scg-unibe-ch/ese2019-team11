@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {LoginService} from '../_services/login.service';
 import {User} from '../_models/user';
 import {RegisterService} from '../_services/register.service';
 import {Router} from '@angular/router';
@@ -21,6 +20,9 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {}
 
+  /**
+   * registers new user
+   */
   onRegisterDisplay() {
     RegisterService.Register(this.user.email.toLowerCase(), this.user.password, this.user.name).subscribe((instance: any) => {
         this.user = new User(instance.id, instance.name, instance.email, instance.password);
@@ -34,7 +36,10 @@ export class RegisterComponent implements OnInit {
     console.log(this.user);
   }
 
-  onLoginDisplay(){
+  /**
+   * goes to login
+   */
+  onLoginDisplay() {
     this.router.navigate(['/login']);
   }
 

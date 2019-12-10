@@ -25,6 +25,9 @@ export class ProfilePage implements OnInit {
   constructor(private modalCtrl: ModalController) {
   }
 
+  /**
+   * opens addservice form
+   */
   async showServiceForm() {
     const modal = await this.modalCtrl.create({
       component: AddServiceComponent
@@ -32,6 +35,9 @@ export class ProfilePage implements OnInit {
     await modal.present();
   }
 
+  /**
+   * opens addlocation form
+   */
   async showOrtForm() {
     const modal = await this.modalCtrl.create({
       component: AddOrtComponent
@@ -39,6 +45,9 @@ export class ProfilePage implements OnInit {
     await modal.present();
   }
 
+  /**
+   * opens addevent form
+   */
   async showEventForm() {
     const modal = await this.modalCtrl.create({
       component: AddEventComponent
@@ -46,6 +55,9 @@ export class ProfilePage implements OnInit {
     await modal.present();
   }
 
+  /**
+   * gets all posts previously made by current user
+   */
   ngOnInit() {
     ServiceService.getServicesById(AppComponent.user).subscribe((instances: any) => {
       this.services = instances.map((instance) => Service.fromSimplification(instance));
@@ -65,6 +77,9 @@ export class ProfilePage implements OnInit {
 
   }
 
+  /**
+   * deletes a service
+   */
   deleteservice(service: Service) {
     console.log(AppComponent.user);
     ServiceService.deletepost(service, AppComponent.user).subscribe((instances: any) => {
@@ -73,6 +88,9 @@ export class ProfilePage implements OnInit {
     });
   }
 
+  /**
+   * deletes an event
+   */
   deleteevent(event: Event) {
     console.log(AppComponent.user);
     EventService.deletepost(event, AppComponent.user).subscribe((instances: any) => {
@@ -81,6 +99,9 @@ export class ProfilePage implements OnInit {
     });
   }
 
+  /**
+   * deletes a location
+   */
   deleteort(ort: Ort) {
     console.log(AppComponent.user);
     OrtService.deletepost(ort, AppComponent.user).subscribe((instances: any) => {

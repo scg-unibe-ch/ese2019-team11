@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from '../../_models/user';
-import {UpdateService} from '../../_services/update.service';
 import {Router} from '@angular/router';
 import {ToastController} from '@ionic/angular';
 import {LoginService} from '../../_services/login.service';
 import {AppComponent} from '../../app.component';
 
+/**
+ * enables changes to user
+ */
 
 @Component({
   selector: 'app-settings',
@@ -28,6 +30,9 @@ export class SettingsPage implements OnInit {
     this.user = AppComponent.user;
   }
 
+  /**
+   * changes current users password
+   */
   onChangePassword() {
     if (this.newpassword === this.newpasswordrepeat) {
       LoginService.changepassword(this.password, this.newpassword, AppComponent.user).subscribe((instance: any) => {
@@ -42,7 +47,9 @@ export class SettingsPage implements OnInit {
     }
   }
 
-
+  /**
+   * changes current users email and/or name
+   */
   onChange() {
     LoginService.updateUser(this.user).subscribe((instance: any) => {
       AppComponent.user = new User(instance.id, instance.name, instance.email, instance.password);
@@ -63,7 +70,5 @@ export class SettingsPage implements OnInit {
     toast.present();
   }
 
-  onChangeemail() {
 
-  }
 }

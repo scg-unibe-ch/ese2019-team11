@@ -1,8 +1,10 @@
 import {Router, Request, Response} from 'express';
 import {Event} from '../models/Event.model';
 import {Sequelize} from 'sequelize-typescript';
-import {Service} from "../models/service.model";
 
+/**
+ * contains the functions to alter the Event table
+ */
 
 
 
@@ -22,7 +24,7 @@ router.get('/all', async (req: Request, res: Response) => {
 });
 
 /**
- * gets all services by this user id
+ * gets all events by this user id
  */
 router.get('/id/:id',async (req: Request, res: Response) => {
     const id = req.params.id;
@@ -37,7 +39,7 @@ router.get('/id/:id',async (req: Request, res: Response) => {
 );
 
 /**
- * deletes a location
+ * deletes an event
  */
 router.post('/delete/:id',async (req: Request, res: Response) => {
     const id = parseInt(req.params.id);
@@ -76,6 +78,9 @@ router.post('/',async (req: Request, res: Response) => {
   }
 );
 
+/**
+ * gets all events which at least partially match 'value' in one of their parameters of type string
+ */
 router.get('/search/:value', async (req: Request, res: Response) => {
   const value = req.params.value;
   let instances: Event[];

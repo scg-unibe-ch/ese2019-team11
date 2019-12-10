@@ -3,7 +3,11 @@ import {LoginService} from '../_services/login.service';
 import {User} from '../_models/user';
 import {Router} from '@angular/router';
 import {ToastController} from '@ionic/angular';
-import {AppComponent} from "../app.component";
+import {AppComponent} from '../app.component';
+
+/**
+ * for logging in
+ */
 
 @Component({
   selector: 'app-login',
@@ -21,6 +25,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {}
 
+  /**
+   * logs in user
+   */
   onLoginDisplay() {
     LoginService.Login(this.user.email.toLowerCase(), this.user.password).subscribe((instance: any) => {
       this.user = new User(instance.id, instance.name, instance.email, instance.password);
@@ -34,6 +41,9 @@ export class LoginComponent implements OnInit {
     console.log(this.user);
   }
 
+  /**
+   * goes to register
+   */
   onRegisterDisplay() {
     this.router.navigate(['/register']);
   }
