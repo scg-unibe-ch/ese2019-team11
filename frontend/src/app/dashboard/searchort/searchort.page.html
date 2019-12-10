@@ -10,14 +10,13 @@
         <div class="inner" *ngFor="let currentOrt of orte">
           <div class="service">
             <h3> {{currentOrt.title}}</h3>
-            <p> {{currentOrt.address}}</p>
+            <p> Address: {{currentOrt.address}}</p>
             <img style="width: 20%"src="{{currentOrt.image}}"alt="didn't work">
-            <p> {{currentOrt.description}}</p>
-            <p> {{currentOrt.area}}</p>
-            <p> {{currentOrt.rent}}</p>
-            <p> {{currentOrt.availability}}</p>
-            <p> {{currentOrt.email}}</p>
-            <!--mehr stuff hinzufügen   -->
+            <p> Description: {{currentOrt.description}}</p>
+            <p> Area: {{currentOrt.area}}</p>
+            <p> Rent: {{currentOrt.rent}}</p>
+            <p> Availability: {{currentOrt.availability}}</p>
+            <p> E-Mail: {{currentOrt.email}}</p>
 
           </div>
 
